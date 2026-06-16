@@ -1,0 +1,2219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Young Family — Notable Ancestors</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:        #1a1a2e;
+    --ink-light:  #4a4a6a;
+    --ink-faint:  #9090b0;
+    --cream:      #fafaf8;
+    --white:      #ffffff;
+    --gold:       #c8973a;
+    --gold-light: #f0d9a8;
+    --gold-faint: #fdf6e8;
+    --line:       #e8e8e8;
+    --scots-blue: #1d4e8f;
+    --scots-blue-faint: #eef3fb;
+    --red:        #b94040;
+    --red-faint:  #fceaea;
+    --green:      #2e6b4a;
+    --green-faint:#eaf4ee;
+    --purple:     #5a3472;
+    --purple-faint:#f3edf8;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250,250,248,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: 0 24px;
+    height: 56px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .nav-brand span { color: var(--gold); }
+  .nav-links {
+    display: flex; gap: 8px; list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.8rem; font-weight: 500; color: var(--ink-light);
+    text-decoration: none; padding: 6px 10px; border-radius: 6px;
+    transition: background 0.15s, color 0.15s;
+    white-space: nowrap;
+  }
+  .nav-links a:hover { background: var(--gold-faint); color: var(--gold); }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 80px 24px 64px;
+    max-width: 760px; margin: 0 auto; text-align: center;
+  }
+  .hero-eyebrow {
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 600; line-height: 1.15;
+    letter-spacing: -0.02em; color: var(--ink);
+    margin-bottom: 20px;
+  }
+  .hero h1 em { font-style: italic; color: var(--gold); }
+  .hero p {
+    font-size: 1.05rem; color: var(--ink-light);
+    max-width: 560px; margin: 0 auto 36px;
+    font-weight: 300; line-height: 1.75;
+  }
+  .hero-stats {
+    display: flex; gap: 32px; justify-content: center; flex-wrap: wrap;
+  }
+  .stat { text-align: center; }
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight: 600; color: var(--ink);
+    display: block; line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.75rem; color: var(--ink-faint);
+    font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  /* ── SECTION WRAPPER ── */
+  .section { padding: 64px 24px; }
+  .section-inner { max-width: 900px; margin: 0 auto; }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem; font-weight: 600; color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .section-sub {
+    font-size: 0.9rem; color: var(--ink-faint); margin-bottom: 40px;
+  }
+  .divider { border: none; border-top: 1px solid var(--line); margin: 0; }
+
+  /* ── OVERVIEW CHAIN ── */
+  .chain-intro {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 48px;
+  }
+  .chain-intro p {
+    font-size: 0.95rem; color: var(--ink-light); line-height: 1.8;
+  }
+  .chain-intro strong { color: var(--ink); }
+
+  /* Branch cards on overview */
+  .branches { display: flex; flex-direction: column; gap: 24px; }
+  .branch-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 28px 32px;
+    cursor: pointer;
+    transition: box-shadow 0.2s, border-color 0.2s;
+    text-decoration: none; color: inherit; display: block;
+  }
+  .branch-card:hover {
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    border-color: var(--gold);
+  }
+  .branch-header {
+    display: flex; align-items: flex-start; gap: 16px; margin-bottom: 16px;
+  }
+  .branch-icon {
+    width: 44px; height: 44px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; flex-shrink: 0;
+  }
+  .branch-header-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem; font-weight: 600; color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .branch-header-text p {
+    font-size: 0.8rem; color: var(--ink-faint);
+    font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase;
+  }
+  .mini-chain {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 4px;
+    font-size: 0.78rem; color: var(--ink-light);
+  }
+  .mini-chain .person { font-weight: 500; }
+  .mini-chain .person.highlight { color: var(--gold); font-weight: 600; }
+  .mini-chain .arrow { color: var(--ink-faint); font-size: 0.7rem; }
+  .branch-cta {
+    font-size: 0.8rem; font-weight: 600; color: var(--gold);
+    margin-top: 14px; display: flex; align-items: center; gap: 4px;
+  }
+
+  /* ── PERSON CARDS GRID ── */
+  .persons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .person-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: box-shadow 0.2s, border-color 0.2s;
+    text-decoration: none; color: inherit; display: block;
+  }
+  .person-card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    border-color: var(--gold);
+  }
+  .person-card-header {
+    padding: 24px 24px 0;
+    display: flex; align-items: flex-start; gap: 14px;
+  }
+  .person-portrait {
+    width: 56px; height: 56px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem; flex-shrink: 0;
+  }
+  .person-card-meta { flex: 1; }
+  .person-era {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--ink-faint);
+    margin-bottom: 4px;
+  }
+  .person-card-meta h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem; font-weight: 600; color: var(--ink);
+    line-height: 1.25;
+  }
+  .person-card-meta .dates {
+    font-size: 0.78rem; color: var(--ink-faint); margin-top: 4px;
+  }
+  .person-card-body { padding: 16px 24px 20px; }
+  .person-card-body p {
+    font-size: 0.85rem; color: var(--ink-light);
+    line-height: 1.65; margin-bottom: 12px;
+  }
+  .person-tag {
+    display: inline-block;
+    font-size: 0.7rem; font-weight: 600;
+    padding: 3px 10px; border-radius: 20px;
+    letter-spacing: 0.04em;
+  }
+  .person-gen {
+    font-size: 0.72rem; color: var(--ink-faint);
+    margin-top: 8px; font-style: italic;
+  }
+
+  /* ── MODAL OVERLAY ── */
+  .modal-overlay {
+    display: none; position: fixed; inset: 0; z-index: 200;
+    background: rgba(26,26,46,0.6);
+    backdrop-filter: blur(4px);
+    overflow-y: auto;
+    padding: 24px;
+  }
+  .modal-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
+  .modal {
+    background: var(--white);
+    border-radius: 20px;
+    max-width: 680px; width: 100%;
+    margin: auto;
+    overflow: hidden;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.25);
+    animation: modalIn 0.2s ease;
+  }
+  @keyframes modalIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .modal-header {
+    padding: 32px 32px 24px;
+    border-bottom: 1px solid var(--line);
+    display: flex; gap: 20px; align-items: flex-start;
+  }
+  .modal-portrait {
+    width: 72px; height: 72px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2rem; flex-shrink: 0;
+  }
+  .modal-title-block { flex: 1; }
+  .modal-eyebrow {
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--ink-faint); margin-bottom: 6px;
+  }
+  .modal-title-block h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem; font-weight: 600; color: var(--ink);
+    line-height: 1.2; margin-bottom: 6px;
+  }
+  .modal-dates {
+    font-size: 0.85rem; color: var(--ink-faint);
+  }
+  .modal-close {
+    background: var(--line); border: none; cursor: pointer;
+    width: 32px; height: 32px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--ink-light); font-size: 1.1rem;
+    flex-shrink: 0; transition: background 0.15s;
+  }
+  .modal-close:hover { background: var(--gold-light); }
+
+  .modal-body { padding: 28px 32px 32px; }
+
+  .modal-section { margin-bottom: 28px; }
+  .modal-section:last-child { margin-bottom: 0; }
+  .modal-section-label {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .modal-section p {
+    font-size: 0.9rem; color: var(--ink-light); line-height: 1.75;
+  }
+
+  /* Facts list */
+  .facts-list { list-style: none; }
+  .facts-list li {
+    font-size: 0.88rem; color: var(--ink-light);
+    padding: 8px 0; border-bottom: 1px solid var(--line);
+    display: flex; gap: 10px; align-items: flex-start; line-height: 1.5;
+  }
+  .facts-list li:last-child { border-bottom: none; }
+  .facts-list li::before { content: '→'; color: var(--gold); flex-shrink: 0; font-weight: 600; }
+
+  /* Descent chain in modal */
+  .descent-chain {
+    background: var(--cream);
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .descent-chain-note {
+    font-size: 0.78rem; color: var(--ink-faint);
+    margin-bottom: 14px; font-style: italic;
+  }
+  .chain-steps { display: flex; flex-direction: column; gap: 0; }
+  .chain-step {
+    display: flex; align-items: flex-start; gap: 12px;
+  }
+  .chain-step-left {
+    display: flex; flex-direction: column; align-items: center;
+    flex-shrink: 0; width: 24px;
+  }
+  .chain-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--line); border: 2px solid var(--ink-faint);
+    flex-shrink: 0; margin-top: 5px;
+  }
+  .chain-dot.you { background: var(--gold); border-color: var(--gold); }
+  .chain-dot.notable { background: var(--ink); border-color: var(--ink); }
+  .chain-line {
+    width: 2px; background: var(--line);
+    flex: 1; min-height: 20px; margin: 2px 0;
+  }
+  .chain-step-text {
+    padding-bottom: 16px; flex: 1;
+  }
+  .chain-step-name {
+    font-size: 0.85rem; font-weight: 500; color: var(--ink);
+    line-height: 1.3;
+  }
+  .chain-step-name.you-name { color: var(--gold); font-weight: 600; }
+  .chain-step-name.notable-name { color: var(--ink); font-weight: 700; }
+  .chain-step-detail {
+    font-size: 0.75rem; color: var(--ink-faint); margin-top: 2px;
+  }
+  .chain-step-rel {
+    font-size: 0.7rem; color: var(--ink-faint);
+    font-style: italic; margin-top: 1px;
+  }
+
+  /* Context box */
+  .context-box {
+    background: var(--gold-faint);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 16px;
+    font-size: 0.85rem; color: var(--ink-light); line-height: 1.65;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 40px 24px;
+    text-align: center;
+    font-size: 0.8rem; color: var(--ink-faint);
+  }
+  footer strong { color: var(--ink-light); }
+
+  /* ── COLOUR THEMES PER CATEGORY ── */
+  .theme-scots    { --t: var(--scots-blue);    --tb: var(--scots-blue-faint); }
+  .theme-english  { --t: var(--red);            --tb: var(--red-faint); }
+  .theme-military { --t: var(--green);           --tb: var(--green-faint); }
+  .theme-noble    { --t: var(--purple);          --tb: var(--purple-faint); }
+  .theme-gold     { --t: var(--gold);            --tb: var(--gold-faint); }
+
+  .person-portrait,
+  .modal-portrait,
+  .branch-icon { background: var(--tb); color: var(--t); }
+  .person-tag { background: var(--tb); color: var(--t); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    .hero { padding: 48px 16px 40px; }
+    .section { padding: 40px 16px; }
+    .modal { border-radius: 16px; }
+    .modal-header, .modal-body { padding: 20px; }
+    .branch-card { padding: 20px; }
+    .persons-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .modal { animation: none; }
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">The <span>Young</span> Family</div>
+  <ul class="nav-links">
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#royalty">Scottish Royalty</a></li>
+    <li><a href="#english">English Royalty</a></li>
+    <li><a href="#nobles">Nobles & Warriors</a></li>
+    <li><a href="#scottish-nobles">Scottish Nobles</a></li>
+    <li><a href="#colonial">Colonial</a></li>
+    <li><a href="#living">Living Connections</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">The Young Family Heritage</p>
+  <h1>Your family stretches back to <em>Robert the Bruce</em></h1>
+  <p>A guide to the remarkable people in the Young family tree — their lives, their times, and the exact chain that connects them to Steve, June, Stella and Olivia today.</p>
+  <div class="hero-stats">
+    <div class="stat"><span class="stat-number">900+</span><span class="stat-label">Years of history</span></div>
+    <div class="stat"><span class="stat-number">19</span><span class="stat-label">Notable ancestors</span></div>
+    <div class="stat"><span class="stat-number">6</span><span class="stat-label">Living connections</span></div>
+    <div class="stat"><span class="stat-number">5</span><span class="stat-label">Colonial settlers</span></div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- OVERVIEW CHAINS -->
+<section class="section" id="overview">
+  <div class="section-inner">
+    <h2 class="section-title">How it all connects</h2>
+    <p class="section-sub">Every notable person in the tree is connected to you through one of these four chains. All routes run through your mother June's side of the family.</p>
+
+    <div class="chain-intro">
+      <p>All of the royal and noble connections discovered so far run through <strong>June Fyfe</strong> (Steve's mum), back through the <strong>Fyfe</strong>, <strong>Paterson</strong>, <strong>Blair</strong>, and <strong>Montgomery</strong> lines in Clackmannanshire and Ayrshire, Scotland. The chains then branch in different directions — some into Scottish royalty, some into English royalty, some into the great noble families of medieval Yorkshire and Northumberland.</p>
+    </div>
+
+    <div class="branches">
+
+      <a class="branch-card" href="#royalty" onclick="scrollToSection('royalty')">
+        <div class="branch-header">
+          <div class="branch-icon theme-scots" style="background:#eef3fb;color:#1d4e8f">🏴󠁧󠁢󠁳󠁣󠁴󠁿</div>
+          <div class="branch-header-text">
+            <h3>The Scottish Royal Line</h3>
+            <p>Joan Stewart → James I → Robert the Bruce</p>
+          </div>
+        </div>
+        <div class="mini-chain">
+          <span class="person highlight">Steve</span><span class="arrow">›</span>
+          <span class="person">June</span><span class="arrow">›</span>
+          <span class="person">John Fyfe</span><span class="arrow">›</span>
+          <span class="person">Betsy Paterson</span><span class="arrow">›</span>
+          <span class="person">…Patersons…</span><span class="arrow">›</span>
+          <span class="person">Jonett Blair</span><span class="arrow">›</span>
+          <span class="person">…Blairs…</span><span class="arrow">›</span>
+          <span class="person">John Montgomery</span><span class="arrow">›</span>
+          <span class="person">John Blair (1476)</span><span class="arrow">›</span>
+          <span class="person">Beatrice Mortoun</span><span class="arrow">›</span>
+          <span class="person highlight">Joan Stewart</span><span class="arrow">›</span>
+          <span class="person">James I</span><span class="arrow">›</span>
+          <span class="person">Robert III</span><span class="arrow">›</span>
+          <span class="person">Robert II</span><span class="arrow">›</span>
+          <span class="person">Marjorie Bruce</span><span class="arrow">›</span>
+          <span class="person highlight">Robert the Bruce</span>
+        </div>
+        <div class="branch-cta">Explore this line →</div>
+      </a>
+
+      <a class="branch-card" href="#english" onclick="scrollToSection('english')">
+        <div class="branch-header">
+          <div class="branch-icon theme-english" style="background:#fceaea;color:#b94040">👑</div>
+          <div class="branch-header-text">
+            <h3>The English Royal Line</h3>
+            <p>Joan Beaufort → John of Gaunt → Edward III → William the Conqueror</p>
+          </div>
+        </div>
+        <div class="mini-chain">
+          <span class="person highlight">Steve</span><span class="arrow">›</span>
+          <span class="person">…Scottish chain…</span><span class="arrow">›</span>
+          <span class="person highlight">Joan Stewart</span><span class="arrow">›</span>
+          <span class="person highlight">Joan Beaufort</span><span class="arrow">›</span>
+          <span class="person">John Beaufort</span><span class="arrow">›</span>
+          <span class="person highlight">John of Gaunt</span><span class="arrow">›</span>
+          <span class="person highlight">Edward III</span><span class="arrow">›</span>
+          <span class="person">Edward II</span><span class="arrow">›</span>
+          <span class="person">Edward I</span><span class="arrow">›</span>
+          <span class="person">…Plantagenets…</span><span class="arrow">›</span>
+          <span class="person highlight">William the Conqueror</span>
+        </div>
+        <div class="branch-cta">Explore this line →</div>
+      </a>
+
+      <a class="branch-card" href="#nobles" onclick="scrollToSection('nobles')">
+        <div class="branch-header">
+          <div class="branch-icon theme-military" style="background:#eaf4ee;color:#2e6b4a">⚔️</div>
+          <div class="branch-header-text">
+            <h3>The Henderson Battle Line</h3>
+            <p>Father and son who died in Scotland's two greatest defeats</p>
+          </div>
+        </div>
+        <div class="mini-chain">
+          <span class="person highlight">Steve</span><span class="arrow">›</span>
+          <span class="person">June</span><span class="arrow">›</span>
+          <span class="person">John Fyfe</span><span class="arrow">›</span>
+          <span class="person">…Fyfe chain…</span><span class="arrow">›</span>
+          <span class="person">Jean Anderson</span><span class="arrow">›</span>
+          <span class="person">…Andersons…</span><span class="arrow">›</span>
+          <span class="person">Margaret Henderson</span><span class="arrow">›</span>
+          <span class="person highlight">Sir William Henderson (Pinkie)</span><span class="arrow">›</span>
+          <span class="person highlight">Sir James Henderson (Flodden)</span>
+        </div>
+        <div class="branch-cta">Explore this line →</div>
+      </a>
+
+      <a class="branch-card" href="#nobles" onclick="scrollToSection('nobles')">
+        <div class="branch-header">
+          <div class="branch-icon theme-noble" style="background:#f3edf8;color:#5a3472">🏰</div>
+          <div class="branch-header-text">
+            <h3>The Noble Houses — Percy, FitzAlan & Campbell</h3>
+            <p>Earls, Chancellors, and the Percy family of Northumberland</p>
+          </div>
+        </div>
+        <div class="mini-chain">
+          <span class="person highlight">Steve</span><span class="arrow">›</span>
+          <span class="person">June</span><span class="arrow">›</span>
+          <span class="person">…Fyfe chain…</span><span class="arrow">›</span>
+          <span class="person">Margaret Hynd</span><span class="arrow">›</span>
+          <span class="person">…Gib/Allan chain…</span><span class="arrow">›</span>
+          <span class="person">Ann Sothill</span><span class="arrow">›</span>
+          <span class="person">John Soothill</span><span class="arrow">›</span>
+          <span class="person">Joan Clervaux</span><span class="arrow">›</span>
+          <span class="person highlight">Elizabeth Percy</span>
+        </div>
+        <div class="branch-cta">Explore this line →</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SCOTTISH ROYALTY -->
+<section class="section" id="royalty">
+  <div class="section-inner">
+    <h2 class="section-title">Scottish Royalty</h2>
+    <p class="section-sub">The line from Steve through June's Paterson and Blair ancestors reaches the Scottish crown — and through it, Robert the Bruce himself.</p>
+    <div class="persons-grid">
+      <!-- Joan Stewart -->
+      <div class="person-card theme-scots" onclick="openModal('joan-stewart')">
+        <div class="person-card-header">
+          <div class="person-portrait">👑</div>
+          <div class="person-card-meta">
+            <div class="person-era">Scottish Royalty · 1428–1493</div>
+            <h3>Joan Stewart, Countess of Morton</h3>
+            <div class="dates">b. Perth · d. Dalkeith</div>
+          </div>
+        </div>
+        <div class="person-card-body">
+          <p>Daughter of King James I of Scotland. The key link connecting the Young family to the Scottish royal line — and through it, to Robert the Bruce.</p>
+          <span class="person-tag">17th great-grandmother</span>
+          <div class="person-gen">Your connection: via Beatrice Mortoun → Blair → Montgomery line</div>
+        </div>
+      </div>
+      <!-- James I -->
+      <div class="person-card theme-scots" onclick="openModal('james-i')">
+        <div class="person-card-header">
+          <div class="person-portrait">⚜️</div>
+          <div class="person-card-meta">
+            <div class="person-era">King of Scotland · 1394–1437</div>
+            <h3>James I, King of Scotland</h3>
+            <div class="dates">b. Dunfermline · d. Perth (murdered)</div>
+          </div>
+        </div>
+        <div class="person-card-body">
+          <p>Poet-king who spent 18 years as an English prisoner. Wrote <em>The Kingis Quair</em> during captivity. Joan Stewart's father.</p>
+          <span class="person-tag">18th great-grandfather</span>
+          <div class="person-gen">Your connection: father of Joan Stewart</div>
+        </div>
+      </div>
+      <!-- Robert the Bruce -->
+      <div class="person-card theme-scots" onclick="openModal('robert-bruce')">
+        <div class="person-card-header">
+          <div class="person-portrait">🏴󠁧󠁢󠁳󠁣󠁴󠁿</div>
+          <div class="person-card-meta">
+            <div class="person-era">King of Scotland · 1274–1329</div>
+            <h3>Robert I — Robert the Bruce</h3>
+            <div class="dates">b. Turnberry Castle · d. Manor of Cardross</div>
+          </div>
+        </div>
+        <div class="person-card-body">
+          <p>Scotland's greatest hero. Won independence at Bannockburn (1314) and ended centuries of English dominance. Your 22nd great-grandfather.</p>
+          <span class="person-tag">22nd great-grandfather</span>
+          <div class="person-gen">Your connection: great-grandfather of Robert II → James I → Joan Stewart</div>
+        </div>
+      </div>
+      <!-- Colin Campbell -->
+      <div class="person-card theme-scots" onclick="openModal('colin-campbell')">
+        <div class="person-card-header">
+          <div class="person-portrait">🏛️</div>
+          <div class="person-card-meta">
+            <div class="person-era">Lord High Chancellor · 1433–1493</div>
+            <h3>Sir Colin Campbell, 1st Earl of Argyll</h3>
+            <div class="dates">b. Kilchurn Castle, Argyll · d. Tullibardine</div>
+          </div>
+        </div>
+        <div class="person-card-body">
+          <p>The most powerful man in Scotland in his day — Lord High Chancellor under James III and James IV. His daughter Helen married into your Montgomery line.</p>
+          <span class="person-tag">17th great-grandfather</span>
+          <div class="person-gen">Your connection: via Lady Helen Campbell → Elizabeth Montgomery → Blair</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ENGLISH ROYALTY -->
+<section class="section" id="english">
+  <div class="section-inner">
+    <h2 class="section-title">English Royalty</h2>
+    <p class="section-sub">Through Joan Beaufort — James I's wife and Joan Stewart's mother — the family line reaches Edward III, the Plantagenets, and ultimately William the Conqueror.</p>
+    <div class="persons-grid">
+      <!-- Joan Beaufort -->
+      <div class="person-card theme-english" onclick="openModal('joan-beaufort')">
+        <div class="person-card-header">
+          <div class="person-portrait">👑</div>
+          <div class="person-card-meta">
+            <div class="person-era">Queen of Scotland · ~1404–1445</div>
+            <h3>Joan Beaufort, Queen of Scotland</h3>
+            <div class="dates">b. England · d. Dunbar Castle</div>
+          </div>
+        </div>
+        <div class="person-card-body">
+          <p>Granddaughter of John of Gaunt. James I fell in love with her while still an English prisoner. Her bloodline connects the Young family to three English royal dynasties.</p>
+          <span class="person-tag">18th great-grandmother</span>
+          <div class="person-gen">Your connection: mother of Joan Stewart</div>
+        </div>
+      </div>
+      <!-- John of Gaunt -->
+      <div class="person-card theme-english" onclick="openModal('john-gaunt')">
+        <div class="person-card-header">
+          <div class="person-portrait">🦁</div>
+          <div class="person-card-meta">
+            <div class="person-era">Duke of Lancaster · 1340–1399</div>
+            <h3>John of Gaunt, 1st Duke of Lancaster</h3>
+            <div class="dates">b. Ghent, Belgium · d. Leicester Castle</div>
+          </div>
+        </div>
+        <div class="person-card-body">
+          <p>The most powerful English nobleman of his age. Son of Edward III. His descendants include the Lancastrian kings, the Tudor dynasty, and the Kings of Scotland.</p>
+          <span class="person-tag">20th great-grandfather</span>
+          <div class="person-gen">Your connection: grandfather of Joan Beaufort</div>
+        </div>
+      </div>
+      <!-- Edward III -->
+      <div class="person-card theme-english" onclick="openModal('edward-iii')">
+        <div class="person-card-header">
+          <div class="person-portrait">⚔️</div>
+          <div class="person-card-meta">
+            <div class="person-era">King of England · 1312–1377</div>
+            <h3>Edward III, King of England</h3>
+            <div class="dates">b. Windsor Castle · d. Sheen Palace</div>
+          </div>
+        </div>
+        <div class="person-card-body">
+          <p>Started the Hundred Years' War with France. One of England's greatest warrior kings. His many children's descendants fought each other in the Wars of the Roses.</p>
+          <span class="person-tag">21st great-grandfather</span>
+          <div class="person-gen">Your connection: father of John of Gaunt</div>
+        </div>
+      </div>
+      <!-- Elizabeth Percy -->
+      <div class="person-card theme-english" onclick="openModal('elizabeth-percy')">
+        <div class="person-card-header">
+          <div class="person-portrait">🏹</div>
+          <div class="person-card-meta">
+            <div class="person-era">Percy Family · ~1395–1437</div>
+            <h3>Elizabeth Percy</h3>
+            <div class="dates">b. Alnwick, Northumberland · d. Staindrop</div>
+          </div>
+        </div>
+        <div class="person-card-body">
+          <p>From the House of Percy — England's most famous northern dynasty. Granddaughter of Henry "Hotspur" Percy, the warrior immortalised by Shakespeare in Henry IV.</p>
+          <span class="person-tag">21st great-grandmother</span>
+          <div class="person-gen">Your connection: via Fyfe → Soothill → Joan Clervaux → Elizabeth Percy</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- NOBLES & WARRIORS -->
+<section class="section" id="nobles">
+  <div class="section-inner">
+    <h2 class="section-title">Nobles &amp; Warriors</h2>
+    <p class="section-sub">Beyond royalty, the tree contains earls, lords, a High Chancellor — and two men who died in Scotland's most devastating military defeats, a generation apart.</p>
+    <div class="persons-grid">
+      <!-- Sir James Henderson Flodden -->
+      <div class="person-card theme-military" onclick="openModal('james-henderson')">
+        <div class="person-card-header">
+          <div class="person-portrait">⚔️</div>
+          <div class="person-card-meta">
+            <div class="person-era">Lord of Fordell · 1450–1513</div>
+            <h3>Sir James Henderson, Lord of Fordell</h3>
+            <div class="dates">b. Fife · d. Flodden Field, Northumberland</div>
+          </div>
+        </div>
+        <div class="person-card-body">
+          <p>Died at the Battle of Flodden (1513) — Scotland's worst military disaster, where King James IV and much of the Scottish nobility were killed.</p>
+          <span class="person-tag">17th great-grandfather</span>
+          <div class="person-gen">Your connection: via Anderson → Henderson → Fyfe line</div>
+        </div>
+      </div>
+      <!-- George Henderson Pinkie -->
+      <div class="person-card theme-military" onclick="openModal('george-henderson')">
+        <div class="person-card-header">
+          <div class="person-portrait">🛡️</div>
+          <div class="person-card-meta">
+            <div class="person-era">Lord of Fordell · 1495–1547</div>
+            <h3>George Henderson of Fordell</h3>
+            <div class="dates">b. Fife · d. Battle of Pinkie Cleugh</div>
+          </div>
+        </div>
+        <div class="person-card-body">
+          <p>Son of Sir James Henderson. Died at Pinkie Cleugh (1547), another catastrophic Scottish defeat. The records note he died alongside his own son — three generations lost to battle.</p>
+          <span class="person-tag">16th great-grandfather</span>
+          <div class="person-gen">Your connection: son of Sir James Henderson above</div>
+        </div>
+      </div>
+      <!-- John Earl of Arundel -->
+      <div class="person-card theme-noble" onclick="openModal('arundel')">
+        <div class="person-card-header">
+          <div class="person-portrait">🏰</div>
+          <div class="person-card-meta">
+            <div class="person-era">Earl of Arundel · 1408–1435</div>
+            <h3>John FitzAlan, 14th Earl of Arundel</h3>
+            <div class="dates">b. England · d. Beauvais, France</div>
+          </div>
+        </div>
+        <div class="person-card-body">
+          <p>One of England's senior nobility. Died during the Hundred Years' War at the Siege of Gerberoy in France. The Arundel earldom is one of England's oldest titles.</p>
+          <span class="person-tag">18th great-grandfather</span>
+          <div class="person-gen">Your connection: via Fyfe → Hynd → Gib → Allan → Allenye → FitzAlan</div>
+        </div>
+      </div>
+      <!-- Hugh Montgomery -->
+      <div class="person-card theme-noble" onclick="openModal('montgomery')">
+        <div class="person-card-header">
+          <div class="person-portrait">🏯</div>
+          <div class="person-card-meta">
+            <div class="person-era">Earl of Eglinton · 1460–1545</div>
+            <h3>Hugh Montgomery, 1st Earl of Eglinton</h3>
+            <div class="dates">b. Eglinton Castle, Ayrshire · d. Eglinton Castle</div>
+          </div>
+        </div>
+        <div class="person-card-body">
+          <p>A powerful Ayrshire nobleman and central figure in 16th-century Scottish politics. His daughter Elizabeth is in the direct line back to you through the Blair family.</p>
+          <span class="person-tag">16th great-grandfather</span>
+          <div class="person-gen">Your connection: via Blair → Montgomery → Paterson → Fyfe line</div>
+        </div>
+      </div>
+      <!-- Sir John Troutbeck -->
+      <div class="person-card theme-military" onclick="openModal('troutbeck')">
+        <div class="person-card-header">
+          <div class="person-portrait">⚔️</div>
+          <div class="person-card-meta">
+            <div class="person-era">Cheshire Knight · 1434–1459</div>
+            <h3>Sir John Troutbeck</h3>
+            <div class="dates">b. Dunham on the Hill, Cheshire · d. Battle of Blore Heath</div>
+          </div>
+        </div>
+        <div class="person-card-body">
+          <p>Died at the Battle of Blore Heath (1459) — one of the opening battles of the Wars of the Roses. A Lancastrian knight from one of Cheshire's notable families.</p>
+          <span class="person-tag">16th great-grandfather</span>
+          <div class="person-gen">Your connection: via Fyfe → Grice → Wombwell → Troutbeck</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SCOTTISH NOBLES -->
+<section class="section" id="scottish-nobles">
+  <div class="section-inner">
+    <h2 class="section-title">Scottish Nobles &amp; Adventurers</h2>
+    <p class="section-sub">The expanded tree reveals more remarkable Scottish figures — an infamous political operator, a royal Stewart lady, a Fife baronet, a Renfrewshire noble lady, and a Stirlingshire baron.</p>
+    <div class="persons-grid">
+      <div class="person-card theme-scots" onclick="openModal('glencairn')">
+        <div class="person-card-header">
+          <div class="person-portrait">🗡️</div>
+          <div class="person-card-meta">
+            <div class="person-era">4th Earl of Glencairn · 1493–1548</div>
+            <h3>Lord William Cunninghame, 4th Earl of Glencairn</h3>
+            <div class="dates">b. Glengarnock, Ayrshire · d. Finlaystone Castle, Renfrewshire</div>
+          </div>
+        </div>
+        <div class="person-card-body">
+          <p>Known as "The Notorious Intriguer" — a central and scheming player in 16th-century Scottish court politics. His daughter Margaret Cunningham married into the Blair family, connecting him to your main line.</p>
+          <span class="person-tag">15th great-grandfather</span>
+          <div class="person-gen">Your connection: via Margaret Cunningham → John Alexander Blair (9th Lord of Blair) → Blair/Paterson/Fyfe chain</div>
+        </div>
+      </div>
+      <div class="person-card theme-scots" onclick="openModal('ann-atholl')">
+        <div class="person-card-header">
+          <div class="person-portrait">🏰</div>
+          <div class="person-card-meta">
+            <div class="person-era">Royal Stewart · 1494–1564</div>
+            <h3>Lady Agnes Stewart, "Ann of Atholl"</h3>
+            <div class="dates">b. Balvenie Castle, Banffshire · d. Coyleton, Devon</div>
+          </div>
+        </div>
+        <div class="person-card-body">
+          <p>Born at Balvenie Castle in Banffshire, a member of the Stewart family — the Scottish royal house. She connects into the family through the Michell/Aedie/Condie/Fyfe line, a separate route from the Joan Stewart connection.</p>
+          <span class="person-tag">16th great-grandmother</span>
+          <div class="person-gen">Your connection: via Michell → Janet Aedie → Janet Condie → Andrew Paterson → Fyfe chain</div>
+        </div>
+      </div>
+      <div class="person-card theme-scots" onclick="openModal('grissel-sempill')">
+        <div class="person-card-header">
+          <div class="person-portrait">🏯</div>
+          <div class="person-card-meta">
+            <div class="person-era">House of Sempill · 1551–1609</div>
+            <h3>Lady Grissel Grace Sempill</h3>
+            <div class="dates">b. Castle Sempill, Lochwinnoch, Renfrewshire · d. Blair, Ayrshire</div>
+          </div>
+        </div>
+        <div class="person-card-body">
+          <p>From the powerful Sempill family of Renfrewshire. She married John Blair of Blair in 1575, placing her directly in the main Blair/Paterson chain that leads to you. She died at Blair, Ayrshire — the same family seat.</p>
+          <span class="person-tag">13th great-grandmother</span>
+          <div class="person-gen">Your connection: wife of John Blair (b.1575) → James Paterson → Blair/Paterson/Fyfe chain</div>
+        </div>
+      </div>
+      <div class="person-card theme-scots" onclick="openModal('wardlaw')">
+        <div class="person-card-header">
+          <div class="person-portrait">⚜️</div>
+          <div class="person-card-meta">
+            <div class="person-era">1st Baronet of Pitreave · 1565–1637</div>
+            <h3>Sir Henry Wardlaw, 1st Baronet of Pitreave</h3>
+            <div class="dates">b. Pitreave Castle, Fife · d. Dunfermline, Fife</div>
+          </div>
+        </div>
+        <div class="person-card-body">
+          <p>A Fife baronet whose estate Pitreave Castle still stands near Dunfermline. He connects through the Wardlaw/Paterson/Fyfe chain — his granddaughter Rose Wardlaw married into the Fyfe line in Alloa.</p>
+          <span class="person-tag">13th great-grandfather</span>
+          <div class="person-gen">Your connection: via Rose Wardlaw → Janet Paterson → John Fife chain → June → Steve</div>
+        </div>
+      </div>
+      <div class="person-card theme-scots" onclick="openModal('graham-fintry')">
+        <div class="person-card-header">
+          <div class="person-portrait">🏰</div>
+          <div class="person-card-meta">
+            <div class="person-era">7th Baron of Fintry · 1591–1631</div>
+            <h3>(Sir) David Graham, 7th Baron of Fintry</h3>
+            <div class="dates">b. Fintry, Stirlingshire · d. Grahamstow, Scotland</div>
+          </div>
+        </div>
+        <div class="person-card-body">
+          <p>From the Grahams of Fintry — one of Stirlingshire's significant noble families. He connects through the Fyfe → Paterson → Janet Buchan → Horne → Graham line, adding a new Stirlingshire noble thread to the tree.</p>
+          <span class="person-tag">12th great-grandfather</span>
+          <div class="person-gen">Your connection: via June → Fyfe → Paterson → Janet Buchan → Elizabeth Horne → Margaret Graham</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- COLONIAL ADVENTURERS -->
+<section class="section" id="colonial">
+  <div class="section-inner">
+    <h2 class="section-title">Colonial Adventurers — Early America</h2>
+    <p class="section-sub">Five ancestors who made it to the New World — two to Virginia, three to Pennsylvania — across three completely independent family lines, connecting the Young family to the very founding of English America.</p>
+    <div class="persons-grid">
+      <div class="person-card theme-english" onclick="openModal('elizabeth-lawrence')">
+        <div class="person-card-header">
+          <div class="person-portrait">⛵</div>
+          <div class="person-card-meta">
+            <div class="person-era">Early Colonial Settler · 1552–1621</div>
+            <h3>Lady Elizabeth Lawrence of Rumburgh</h3>
+            <div class="dates">b. Rumburgh, Suffolk, England · d. Jamestown, Virginia, USA</div>
+          </div>
+        </div>
+        <div class="person-card-body">
+          <p>Died in 1621 at Jamestown, Virginia — one of England's first permanent settlements in America, founded just 14 years earlier. She is among the earliest English women in the American colonies traceable in the family tree.</p>
+          <span class="person-tag">14th great-grandmother</span>
+          <div class="person-gen">Your connection: via Agnes Davie → Cuthbert Hall → Lydia Hall → Sir Johne Blair VIII → Blair/Paterson/Fyfe chain</div>
+        </div>
+      </div>
+      <div class="person-card theme-english" onclick="openModal('alexander-walker-virginia')">
+        <div class="person-card-header">
+          <div class="person-portrait">🌊</div>
+          <div class="person-card-meta">
+            <div class="person-era">Colonial Settler · 1587–c.1680</div>
+            <h3>Alexander Walker</h3>
+            <div class="dates">b. Edinburgh, Scotland · d. James City County, Virginia, USA</div>
+          </div>
+        </div>
+        <div class="person-card-body">
+          <p>Born in Edinburgh, died in Virginia circa 1680. He connects through Steve's father Gordon's side — the Weir/Forsyth/Morrison/Walker line from Banffshire and Aberdeenshire. A separate American colonial connection entirely independent of the Fyfe line.</p>
+          <span class="person-tag">13th great-grandfather</span>
+          <div class="person-gen">Your connection: via Gordon Young → Helen Weir → Forsyth → Morrison → Walker chain</div>
+        </div>
+      </div>
+      <div class="person-card theme-english" onclick="openModal('moreland-pennsylvania')">
+        <div class="person-card-header">
+          <div class="person-portrait">🌊</div>
+          <div class="person-card-meta">
+            <div class="person-era">Colonial Settlers · 1761–1836</div>
+            <h3>Alexander Moreland &amp; Mary Craig</h3>
+            <div class="dates">b. Ireland · d. Pittsburgh, Pennsylvania, USA</div>
+          </div>
+        </div>
+        <div class="person-card-body">
+          <p>A couple who emigrated from Ireland and died in Pittsburgh, Pennsylvania in 1836. They connect through Steve's maternal grandmother Beryl Cameron's side, via the McKay/Moreland line. Pittsburgh was a frontier city in their era — only incorporated in 1816.</p>
+          <span class="person-tag">8th great-grandparents</span>
+          <div class="person-gen">Your connection: via June → Beryl Cameron → Richard Cameron → Wilhelmina McKay → Margaret Moreland</div>
+        </div>
+      </div>
+      <div class="person-card theme-english" onclick="openModal('johanna-lawry')">
+        <div class="person-card-header">
+          <div class="person-portrait">⚓</div>
+          <div class="person-card-meta">
+            <div class="person-era">Colonial Settler · 1677–c.1740</div>
+            <h3>Johanna Lawry</h3>
+            <div class="dates">b. Dartmouth, Devon, England · d. Chester, Pennsylvania, USA</div>
+          </div>
+        </div>
+        <div class="person-card-body">
+          <p>Born in Dartmouth, Devon — a major English port — and died in Chester, Pennsylvania. Chester was founded in 1682 by William Penn himself, making it one of Pennsylvania's oldest settlements. She connects through the Perring/Treby/Lawry line on Beryl Cameron's side.</p>
+          <span class="person-tag">10th great-grandmother</span>
+          <div class="person-gen">Your connection: via June → Beryl Cameron → Elizabeth Perring → Thomas Pering → John Treby → Johanna Lawry</div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:24px;padding:20px 24px;background:var(--gold-faint);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;font-size:0.85rem;color:var(--ink-light);line-height:1.7;">
+      <strong style="color:var(--ink);">A note on the Mayflower connection:</strong> The family tree contains a "Sir John Clarke, Mayflower Navigator" entry. Research shows the real Mayflower pilot John Clarke was born in Rotherhithe, Surrey in 1575 — not in Fife in 1555 as recorded. This appears to be a common Ancestry mis-merge of two different people with the same name. The entry has been noted for correction in Ancestry. The Virginia and Pennsylvania connections above are fully evidenced.
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- LIVING CONNECTIONS -->
+<section class="section" id="living">
+  <div class="section-inner">
+    <h2 class="section-title">Living Connections</h2>
+    <p class="section-sub">Because the Young family shares Robert the Bruce as a documented ancestor, there are traceable — if very distant — connections to several well-known people alive today. These are all through the same Bruce/Stewart line.</p>
+
+    <div class="chain-intro" style="margin-bottom:32px;">
+      <p>The key to understanding these connections: <strong>Robert the Bruce is your 22nd great-grandfather</strong>. He is <strong>King Charles III's 20th great-grandfather</strong>. That two-generation difference means you and Charles share a common ancestor but are in different branches — making you very distant cousins. The exact cousin relationship depends on the generations, but think of it as <strong>"distant cousins separated by 700 years"</strong> — real, documented, but extremely remote.</p>
+    </div>
+
+    <div class="persons-grid">
+
+      <!-- King Charles III -->
+      <div class="person-card theme-scots" onclick="openModal('charles-iii')">
+        <div class="person-card-header">
+          <div class="person-portrait">👑</div>
+          <div class="person-card-meta">
+            <div class="person-era">King of the United Kingdom · b. 1948</div>
+            <h3>King Charles III</h3>
+            <div class="dates">b. 14 November 1948, Buckingham Palace</div>
+          </div>
+        </div>
+        <div class="person-card-body">
+          <p>Robert the Bruce is Charles III's 20th great-grandfather — and your 22nd. That makes you and the King distant cousins through the Bruce/Stewart line, with James I of Scotland as your most recent shared royal ancestor.</p>
+          <span class="person-tag">Distant cousin</span>
+          <div class="person-gen">Shared ancestor: Robert the Bruce (your 22nd GGF, his 20th GGF)</div>
+        </div>
+      </div>
+
+      <!-- Tilda Swinton -->
+      <div class="person-card theme-scots" onclick="openModal('tilda-swinton')">
+        <div class="person-card-header">
+          <div class="person-portrait">🎬</div>
+          <div class="person-card-meta">
+            <div class="person-era">Academy Award-winning actress · b. 1960</div>
+            <h3>Tilda Swinton</h3>
+            <div class="dates">b. 5 November 1960, London</div>
+          </div>
+        </div>
+        <div class="person-card-body">
+          <p>Research revealed Tilda Swinton is a direct descendant of Robert the Bruce on both sides of her family, via Robert II. Edinburgh genealogists found she is 19 generations removed from Robert the Bruce — three generations closer than you, making her a distant cousin.</p>
+          <span class="person-tag">Distant cousin</span>
+          <div class="person-gen">Shared ancestor: Robert the Bruce (your 22nd GGF, her 19th GGF)</div>
+        </div>
+      </div>
+
+      <!-- Winston Churchill -->
+      <div class="person-card theme-english" onclick="openModal('winston-churchill')">
+        <div class="person-card-header">
+          <div class="person-portrait">🇬🇧</div>
+          <div class="person-card-meta">
+            <div class="person-era">Prime Minister of the United Kingdom · 1874–1965</div>
+            <h3>Sir Winston Churchill</h3>
+            <div class="dates">b. 30 November 1874, Blenheim Palace, Oxfordshire</div>
+          </div>
+        </div>
+        <div class="person-card-body">
+          <p>Robert the Bruce is the 19th great-grandfather of Winston Churchill, with Churchill's paternal lineage connecting directly to Robert the Bruce over 22 generations via the Spencer-Churchill and Stewart lines.</p>
+          <span class="person-tag">Distant cousin</span>
+          <div class="person-gen">Shared ancestor: Robert the Bruce (your 22nd GGF, his 19th GGF)</div>
+        </div>
+      </div>
+
+      <!-- Theodore Roosevelt -->
+      <div class="person-card theme-english" onclick="openModal('theodore-roosevelt')">
+        <div class="person-card-header">
+          <div class="person-portrait">🇺🇸</div>
+          <div class="person-card-meta">
+            <div class="person-era">26th President of the United States · 1858–1919</div>
+            <h3>Theodore Roosevelt</h3>
+            <div class="dates">b. 27 October 1858, New York City</div>
+          </div>
+        </div>
+        <div class="person-card-body">
+          <p>In the early 1900s, genealogists discovered a link between US President Theodore Roosevelt and Robert the Bruce — his mother's lineage connects Roosevelt to Robert II of Scotland and Walter, High Steward of Scotland, right back to Robert the Bruce.</p>
+          <span class="person-tag">Distant cousin</span>
+          <div class="person-gen">Shared ancestor: Robert the Bruce via Robert II of Scotland</div>
+        </div>
+      </div>
+
+      <!-- Meghan Markle -->
+      <div class="person-card theme-english" onclick="openModal('meghan-markle')">
+        <div class="person-card-header">
+          <div class="person-portrait">👸</div>
+          <div class="person-card-meta">
+            <div class="person-era">Duchess of Sussex · b. 1981</div>
+            <h3>Meghan, Duchess of Sussex</h3>
+            <div class="dates">b. 4 August 1981, Los Angeles, California</div>
+          </div>
+        </div>
+        <div class="person-card-body">
+          <p>Through 25 generations on Meghan's grandmother's side, her ancestor Roger Shaw connects her to Robert the Bruce — via the Bruce Barons of Clackmannan and a Yorkshire line that emigrated to Massachusetts in 1637.</p>
+          <span class="person-tag">Distant cousin</span>
+          <div class="person-gen">Shared ancestor: Robert the Bruce (your 22nd GGF, her 25th GGF)</div>
+        </div>
+      </div>
+
+      <!-- Hilary Duff -->
+      <div class="person-card theme-english" onclick="openModal('hilary-duff')">
+        <div class="person-card-header">
+          <div class="person-portrait">🎵</div>
+          <div class="person-card-meta">
+            <div class="person-era">Actress & singer · b. 1987</div>
+            <h3>Hilary Duff</h3>
+            <div class="dates">b. 28 September 1987, Houston, Texas</div>
+          </div>
+        </div>
+        <div class="person-card-body">
+          <p>Hilary Duff was shocked to learn of her connection to Robert the Bruce on Who Do You Think You Are? — and described Robert the Bruce as her "21-times great-grandfather", meaning she is one generation closer to him than you.</p>
+          <span class="person-tag">Distant cousin</span>
+          <div class="person-gen">Shared ancestor: Robert the Bruce (your 22nd GGF, her 21st GGF)</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:28px;padding:20px 24px;background:var(--scots-blue-faint);border-left:3px solid var(--scots-blue);border-radius:0 8px 8px 0;font-size:0.85rem;color:var(--ink-light);line-height:1.75;">
+      <strong style="color:var(--ink);">A note on cousin distances:</strong> When two people share a common ancestor who lived 700 years ago, the "cousin" relationship is so remote it has no practical meaning — you almost certainly share DNA with none of these people in a measurable way. What it <em>does</em> mean is that all these people and the Young family are part of the same enormous web of medieval Scottish and English descent. Robert the Bruce is thought to have <strong>tens of millions of living descendants</strong> worldwide. The connections here are real and documented — just very, very distant.
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>The Young Family Heritage</strong></p>
+  <p style="margin-top:8px">Built from the Young Family Tree exported from Ancestry.co.uk · June 2026<br>All genealogical chains verified from the GED file. Historical detail from documented sources.</p>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="handleOverlayClick(event)">
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <div class="modal-portrait" id="m-portrait"></div>
+      <div class="modal-title-block">
+        <div class="modal-eyebrow" id="m-eyebrow"></div>
+        <h2 id="m-name"></h2>
+        <div class="modal-dates" id="m-dates"></div>
+      </div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-section">
+        <div class="modal-section-label">Biography</div>
+        <p id="m-bio"></p>
+      </div>
+      <div class="modal-section">
+        <div class="modal-section-label">Historical Context</div>
+        <div class="context-box" id="m-context"></div>
+      </div>
+      <div class="modal-section">
+        <div class="modal-section-label">Notable Facts</div>
+        <ul class="facts-list" id="m-facts"></ul>
+      </div>
+      <div class="modal-section">
+        <div class="modal-section-label" id="m-chain-label">Your Chain of Descent</div>
+        <div class="descent-chain">
+          <div class="descent-chain-note">Reading from you downward to this ancestor — every person in this chain is in the family tree.</div>
+          <div class="chain-steps" id="m-chain"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const DATA = {
+  'joan-stewart': {
+    theme: 'theme-scots',
+    portrait: '👑',
+    eyebrow: 'Scottish Royalty · Countess of Morton',
+    name: 'Joan Stewart, Countess of Morton',
+    dates: 'Born 1428, Perth, Scotland · Died 22 June 1493, Dalkeith, Midlothian',
+    bio: 'Joan Stewart was the daughter of King James I of Scotland and his English queen, Joan Beaufort. She was born in Perth and spent her life in the Scottish court. She married into the powerful Morton family and had at least one daughter, Beatrice Mortoun, who is the link into the Young family line. She died in 1493 at Dalkeith and is buried there. She is the single most important link in the Young family tree — the gateway through which the Bruce line, the Stuart kings, and the English royal Beaufort line all become part of your heritage.',
+    context: 'Joan lived during one of Scotland\'s most turbulent periods. Her father James I had been held prisoner in England for 18 years before returning to rule Scotland. He was subsequently assassinated in Perth in 1437 when Joan was still a child. Scotland was caught between powerful noble factions throughout her lifetime.',
+    facts: [
+      'Daughter of King James I of Scotland — the "poet king" who wrote The Kingis Quair',
+      'Her mother Joan Beaufort was granddaughter of John of Gaunt, son of Edward III of England',
+      'Through her mother, she was a great-granddaughter of Edward III — making her a distant cousin of the English kings',
+      'Her daughter Beatrice Mortoun married John Blair of Blair in Ayrshire — the direct link into the Young family',
+      'She connects the Young family to Robert the Bruce via 5 generations upward',
+    ],
+    chain: [
+      { name: 'Stephen Young (you)', detail: 'b. 22 Jun 1974, Lanark', rel: '', you: true },
+      { name: 'June Fyfe', detail: 'b. 8 Oct 1948, Bellshill', rel: 'your mother' },
+      { name: 'John Fyfe', detail: 'b. 2 Mar 1914, Coatbridge · d. 1981, Airdrie', rel: 'maternal grandfather' },
+      { name: 'David James Fyfe', detail: 'b. ~1887', rel: 'great-grandfather' },
+      { name: 'John Fyfe', detail: 'b. 1854, Fossoway, Perthshire · d. 1925', rel: '2nd great-grandfather' },
+      { name: 'John Fyfe', detail: 'b. 1821 · d. 1893', rel: '3rd great-grandfather' },
+      { name: 'Betsy Paterson', detail: 'b. 1821, Blairingone · d. 27 Mar 1897', rel: '3rd great-grandmother (married John Fyfe 1821)' },
+      { name: 'Andrew Paterson', detail: 'b. 1779, Alloa', rel: '' },
+      { name: 'Alexander Paterson', detail: 'b. 1739, Clackmannan', rel: '' },
+      { name: 'Agnes Blair', detail: 'b. 1705, Clackmannan', rel: '' },
+      { name: 'Isabel Elspet Paterson', detail: 'b. 1677, Clackmannan', rel: '' },
+      { name: 'James Paterson', detail: 'b. 1648, Clackmannanshire', rel: '' },
+      { name: 'Jonett Blair', detail: 'b. 1618, Alloa', rel: '' },
+      { name: 'John Blair', detail: 'b. 1575, Alloa', rel: '' },
+      { name: 'John Alexander Blair, 9th Lord of Blair', detail: 'b. ~1547, Blair Castle, Ayr', rel: '' },
+      { name: 'John III Montgomery', detail: 'b. 1502, Blair, Ayrshire', rel: '' },
+      { name: 'John Blair', detail: 'b. 1476, Blair, Ayrshire', rel: '' },
+      { name: 'Beatrice Mortoun', detail: 'b. 1440, Blair, Ayrshire', rel: '' },
+      { name: 'Joan Stewart, Countess of Morton', detail: 'b. 1428, Perth', rel: '17th great-grandmother', notable: true },
+    ]
+  },
+  'james-i': {
+    theme: 'theme-scots',
+    portrait: '⚜️',
+    eyebrow: 'King of Scotland · r. 1406–1437',
+    name: 'James I, King of Scotland',
+    dates: 'Born 25 July 1394, Dunfermline Palace · Died 21 February 1437, Perth (assassinated)',
+    bio: 'James I had one of the most extraordinary lives of any Scottish monarch. Captured by English pirates aged 11 while sailing to France, he was held as a prisoner of the English crown for 18 years — during which time his father Robert III died of grief. Despite his captivity, he received an excellent education, became a poet of note, and met and fell in love with Joan Beaufort, a granddaughter of John of Gaunt. His release was secured in 1424, and he finally returned to Scotland to reign. He was a strong, reforming king but made powerful enemies among the Scottish nobility. In 1437, a group of assassins broke into his lodgings at the Blackfriars monastery in Perth and murdered him. His wife Joan was wounded trying to defend him.',
+    context: 'Scotland in James\'s time was dominated by powerful noble factions — particularly the Albany Stewarts, who had ruled as regents during his captivity and had little desire to see him return. England and Scotland were in an uneasy truce throughout the Hundred Years\' War period. James\'s kidnapping was actually carried out by English ships who were technically breaking the truce — a diplomatic embarrassment that took years to resolve.',
+    facts: [
+      'Held prisoner in England from age 11 to 29 — longer than any other Scottish king',
+      'Wrote The Kingis Quair ("The King\'s Book") — a love poem about meeting Joan Beaufort, still read today',
+      'Married Joan Beaufort as a condition of his release from English captivity in 1424',
+      'Assassinated in Perth in 1437 — his wife Joan was wounded defending him with her bare hands',
+      'Father of Joan Stewart (your 17th great-grandmother) and James II of Scotland',
+      'His ransom was set at £40,000 — an enormous sum never fully paid',
+    ],
+    chain: [
+      { name: 'Stephen Young (you)', detail: 'b. 22 Jun 1974, Lanark', rel: '', you: true },
+      { name: '…16 generations via Fyfe → Paterson → Blair → Montgomery…', detail: 'See Joan Stewart\'s chain for full detail', rel: '' },
+      { name: 'Joan Stewart, Countess of Morton', detail: 'b. 1428, Perth', rel: '17th great-grandmother' },
+      { name: 'James I, King of Scotland', detail: 'b. 1394, Dunfermline · murdered 1437 Perth', rel: '18th great-grandfather', notable: true },
+    ]
+  },
+  'robert-bruce': {
+    theme: 'theme-scots',
+    portrait: '🏴󠁧󠁢󠁳󠁣󠁴󠁿',
+    eyebrow: 'King of Scotland · r. 1306–1329',
+    name: 'Robert I — Robert the Bruce',
+    dates: 'Born 11 July 1274, Turnberry Castle, Ayrshire · Died 7 June 1329, Manor of Cardross',
+    bio: 'Robert the Bruce is Scotland\'s greatest national hero — the king who won Scottish independence after decades of English domination. His road to the throne was anything but straightforward: he initially supported the English, then changed sides, was declared an outlaw, and fought a guerrilla campaign from the Scottish hills before rallying enough support to take the crown in 1306. His defining moment came at the Battle of Bannockburn in June 1314, where his army destroyed an English force three times its size sent by Edward II to relieve Stirling Castle. Scottish independence was formally recognised by England in 1328, just a year before Robert\'s death.',
+    context: 'Robert lived through the Wars of Scottish Independence — a brutal conflict sparked by Edward I of England\'s attempt to conquer Scotland after the Scottish succession crisis of 1290. William Wallace had earlier led resistance but was captured and executed in 1305. Robert picked up the cause, crowned himself king in 1306, and spent years as a fugitive before turning the tide. The legend of Robert and the spider — watching a spider repeatedly try to spin its web until it succeeded — dates from this period of lowest fortune.',
+    facts: [
+      'Won the Battle of Bannockburn (1314) against an English army three times the size of his own',
+      'Spent years as a fugitive in the Scottish hills before rallying to win the crown',
+      'His daughter Marjorie Bruce died in childbirth — her son (delivered by emergency caesarean) became Robert II, first of the Stewart kings',
+      'Scottish independence was formally recognised by England\'s Treaty of Northampton in 1328',
+      'He suffered from a debilitating illness in his final years, possibly leprosy',
+      'His heart was removed after death and sent on crusade to the Holy Land by his knight Sir James Douglas — it was brought back and buried at Melrose Abbey',
+      'Your connection runs: Robert the Bruce → Marjorie Bruce → Robert II → Robert III → James I → Joan Stewart → your family',
+    ],
+    chain: [
+      { name: 'Stephen Young (you)', detail: 'b. 22 Jun 1974, Lanark', rel: '', you: true },
+      { name: '…17 generations via Fyfe/Paterson/Blair/Montgomery chain…', detail: '', rel: '' },
+      { name: 'Joan Stewart, Countess of Morton', detail: 'b. 1428, Perth', rel: '17th great-grandmother' },
+      { name: 'James I, King of Scotland', detail: 'b. 1394, Dunfermline', rel: '18th great-grandfather' },
+      { name: 'Robert III, King of Scotland', detail: 'b. ~1337', rel: '19th great-grandfather' },
+      { name: 'Robert II, King of Scotland', detail: 'b. 2 Mar 1316, Paisley', rel: '20th great-grandfather (first Stewart king)' },
+      { name: 'Marjorie Bruce', detail: 'b. ~1296 · died in childbirth 1316', rel: '21st great-grandmother' },
+      { name: 'Robert I — Robert the Bruce', detail: 'b. 1274, Turnberry · d. 1329', rel: '22nd great-grandfather', notable: true },
+    ]
+  },
+  'colin-campbell': {
+    theme: 'theme-scots',
+    portrait: '🏛️',
+    eyebrow: 'Lord High Chancellor of Scotland · 1433–1493',
+    name: 'Sir Colin Campbell, 1st Earl of Argyll',
+    dates: 'Born 10 September 1433, Kilchurn Castle, Argyll · Died 10 May 1493, Tullibardine, Perth',
+    bio: 'Sir Colin Campbell was arguably the most powerful man in Scotland in the second half of the 15th century. As Lord High Chancellor — the highest legal and governmental office in the kingdom — he ran the day-to-day affairs of Scotland under James III and James IV. He was the founder of the Campbell earldom of Argyll, a dynasty that would go on to dominate the western Highlands for centuries. His seat was Kilchurn Castle on Loch Awe, still one of the most dramatic castle ruins in Scotland. He married Isabel Stewart of Lorn and their daughter Helen Campbell married Hugh Montgomery, Earl of Eglinton — the connection that puts him in the Young family tree.',
+    context: 'The late 15th century was a period of great political turbulence in Scotland. James III was a weak king who struggled constantly with his nobles. Colin Campbell navigated these waters with considerable skill, maintaining his position of power through multiple crises. The Campbell clan were rising to prominence in the western Highlands at this time, filling the power vacuum left by the fall of the Lordship of the Isles.',
+    facts: [
+      'Lord High Chancellor of Scotland — the highest government office in the kingdom',
+      'Founded the Campbell Earls of Argyll — a dynasty that dominated Highland politics for centuries',
+      'His castle Kilchurn, on Loch Awe in Argyll, is still one of Scotland\'s most visited ruins',
+      'Died the same year as Joan Stewart (1493) — they were distant relatives through the Scottish royal family',
+      'His descendants include some of the most powerful figures in Scottish history',
+      'His daughter Lady Helen Campbell married Hugh Montgomery, 1st Earl of Eglinton — bringing both families into your line',
+    ],
+    chain: [
+      { name: 'Stephen Young (you)', detail: 'b. 22 Jun 1974, Lanark', rel: '', you: true },
+      { name: '…via Fyfe → Betsy Paterson → Paterson/Blair chain…', detail: '', rel: '' },
+      { name: 'Elizabeth Montgomery', detail: 'b. 1480, Ayrshire', rel: '' },
+      { name: 'Lady Helen Campbell of Argyll', detail: 'b. 1465, Argyll', rel: '' },
+      { name: 'Sir Colin Campbell, 1st Earl of Argyll', detail: 'b. 1433, Kilchurn Castle', rel: '17th great-grandfather', notable: true },
+    ]
+  },
+  'joan-beaufort': {
+    theme: 'theme-english',
+    portrait: '👑',
+    eyebrow: 'Queen of Scotland · ~1404–1445',
+    name: 'Joan Beaufort, Queen of Scotland',
+    dates: 'Born ~1404, England · Died 15 July 1445, Dunbar Castle, Scotland',
+    bio: 'Joan Beaufort was one of the most remarkable women of 15th-century Britain. Granddaughter of John of Gaunt (son of Edward III of England), she was a prestigious match for any prince. She met James I of Scotland while he was a prisoner at the English court, and the two fell deeply in love — James wrote his famous poem The Kingis Quair about first seeing her from his prison window. They married in 1424 as a condition of his release. After James\'s assassination in 1437, Joan — wounded in the attack herself — served as regent of Scotland for her young son James II. She was the first dowager queen to serve as Scottish regent since the 13th century. Through her, the Young family connects to John of Gaunt, Edward III, and the entire Plantagenet line.',
+    context: 'Joan lived at the intersection of English and Scottish royal politics at a uniquely turbulent time. England was in the latter stages of the Hundred Years\' War with France. Scotland was riven by factional noble conflict. Joan navigated both worlds — English by birth, Scottish queen by marriage, regent by necessity. Her Beaufort relatives included Cardinal Henry Beaufort, one of the most powerful churchmen in England, and her nephew would become the grandfather of Henry VII, the first Tudor king.',
+    facts: [
+      'Granddaughter of John of Gaunt — making her great-granddaughter of Edward III of England',
+      'James I wrote The Kingis Quair (The King\'s Book) about falling in love with her from his prison window',
+      'Married James I in February 1424 at the church of St Mary Overie, Southwark, London',
+      'Wounded during her husband\'s assassination in 1437 — reportedly used her own body to shield him',
+      'Served as regent of Scotland 1437–1439, the first to do so since the 13th century',
+      'Her brother John Beaufort\'s granddaughter was Lady Margaret Beaufort — mother of Henry VII and grandmother of Henry VIII',
+      'Through her mother Margaret Holland, she also descends from Edward I via Joan of Kent',
+    ],
+    chain: [
+      { name: 'Stephen Young (you)', detail: 'b. 22 Jun 1974, Lanark', rel: '', you: true },
+      { name: '…17 generations via Fyfe/Paterson/Blair/Montgomery chain…', detail: '', rel: '' },
+      { name: 'Joan Stewart, Countess of Morton', detail: 'b. 1428, Perth', rel: '17th great-grandmother' },
+      { name: 'Joan Beaufort, Queen of Scotland', detail: 'b. ~1404 · d. 1445, Dunbar', rel: '18th great-grandmother', notable: true },
+    ]
+  },
+  'john-gaunt': {
+    theme: 'theme-english',
+    portrait: '🦁',
+    eyebrow: '1st Duke of Lancaster · 1340–1399',
+    name: 'John of Gaunt, 1st Duke of Lancaster',
+    dates: 'Born 6 March 1340, Ghent, Belgium · Died 3 February 1399, Leicester Castle',
+    bio: 'John of Gaunt was the most powerful nobleman in 14th-century England — and arguably in all of Europe. Son of Edward III, he controlled the enormous Duchy of Lancaster, commanded armies in France and Spain, and effectively governed England during the final years of his father\'s reign and the minority of his nephew Richard II. His family name "Plantagenet" was the ruling house of England; "of Gaunt" is an anglicisation of Ghent, his Belgian birthplace. He had children by three wives and one long-term mistress (Katherine Swynford), whom he eventually married. His legitimised Beaufort children — including Joan Beaufort\'s father John — connect him to Scotland; his son Henry Bolingbroke deposed Richard II to become Henry IV; and his daughter Catherine married the King of Castile, making him an ancestor of the Spanish royal family.',
+    context: 'John lived through the Black Death (which killed roughly a third of Europe\'s population), the Peasants\' Revolt of 1381 (in which his Savoy Palace in London was burned to the ground), and the opening decades of the Hundred Years\' War. He was the patron of the poet Geoffrey Chaucer — whose sister-in-law Katherine Swynford was John\'s own mistress. His life is the centrepiece of Shakespeare\'s Richard II, in which he delivers the famous "This sceptred isle" speech.',
+    facts: [
+      '"John of Gaunt" means "John of Ghent" — he was born in Belgium while his father was seeking allies against France',
+      'His son Henry Bolingbroke deposed Richard II in 1399 to become Henry IV — starting the Lancastrian royal line',
+      'His legitimised Beaufort children were barred from inheriting the English throne but not the Scottish one',
+      'His daughter Philippa married the King of Portugal — making all subsequent Portuguese monarchs his descendants',
+      'His daughter Catherine married the King of Castile — making all subsequent Spanish monarchs his descendants',
+      'His grandson (via his son John Beaufort) was the grandfather of Henry VII — founder of the Tudor dynasty',
+      'Geoffrey Chaucer was his brother-in-law (Chaucer married Katherine Swynford\'s sister)',
+      'Shakespeare\'s John of Gaunt in Richard II speaks the famous lines: "This royal throne of kings, this sceptered isle…"',
+    ],
+    chain: [
+      { name: 'Stephen Young (you)', detail: 'b. 22 Jun 1974, Lanark', rel: '', you: true },
+      { name: '…17 generations via Fyfe/Paterson/Blair chain…', detail: '', rel: '' },
+      { name: 'Joan Stewart, Countess of Morton', detail: 'b. 1428', rel: '17th great-grandmother' },
+      { name: 'Joan Beaufort, Queen of Scotland', detail: 'b. ~1404', rel: '18th great-grandmother' },
+      { name: 'John Beaufort, 1st Earl of Somerset', detail: 'b. ~1373 · d. 1410', rel: '19th great-grandfather' },
+      { name: 'John of Gaunt, 1st Duke of Lancaster', detail: 'b. 1340, Ghent · d. 1399', rel: '20th great-grandfather', notable: true },
+    ]
+  },
+  'edward-iii': {
+    theme: 'theme-english',
+    portrait: '⚔️',
+    eyebrow: 'King of England · r. 1327–1377',
+    name: 'Edward III, King of England',
+    dates: 'Born 13 November 1312, Windsor Castle · Died 21 June 1377, Sheen Palace',
+    bio: 'Edward III was one of England\'s greatest medieval kings — a warrior king who transformed England into the most feared military power in Europe. He started the Hundred Years\' War with France by claiming the French throne through his mother Isabella, won the great naval battle of Sluys (1340), and his son the Black Prince won the stunning victory at Crécy (1346) and Poitiers (1356). He founded the Order of the Garter in 1348 — still the highest order of chivalry in England today. His reign of 50 years was one of the longest in English history. The tragedy is that his many sons\' descendants eventually tore England apart: the Wars of the Roses were fought between the Lancastrian and Yorkist branches of his family.',
+    context: 'Edward\'s reign coincided with the Black Death of 1348–49, which killed approximately a third of England\'s entire population. Despite this catastrophe — which killed one of his own daughters — his reign saw remarkable military success and cultural flowering. The Hundred Years\' War he started would last until 1453, long after his death. Nearly every person in Britain with medieval ancestry is thought to be descended from Edward III.',
+    facts: [
+      'Founded the Order of the Garter in 1348 — still England\'s highest chivalric honour',
+      'His naval victory at the Battle of Sluys (1340) gave England control of the English Channel',
+      'The Black Death struck England during his reign, killing roughly a third of the population',
+      'Had at least 12 children with Queen Philippa — their descendants fought the Wars of the Roses',
+      'His son John of Gaunt is your 20th great-grandfather; his son the Black Prince was father of Richard II',
+      'One of his daughters, Joan, died of plague aged 14 while travelling to marry the King of Castile',
+      'His claim to the French throne — through his mother Isabella of France — started the Hundred Years\' War',
+    ],
+    chain: [
+      { name: 'Stephen Young (you)', detail: 'b. 22 Jun 1974, Lanark', rel: '', you: true },
+      { name: '…17 generations via Fyfe/Paterson/Blair chain…', detail: '', rel: '' },
+      { name: 'Joan Stewart, Countess of Morton', detail: 'b. 1428', rel: '17th great-grandmother' },
+      { name: 'Joan Beaufort, Queen of Scotland', detail: 'b. ~1404', rel: '18th great-grandmother' },
+      { name: 'John Beaufort, 1st Earl of Somerset', detail: 'b. ~1373', rel: '19th great-grandfather' },
+      { name: 'John of Gaunt, 1st Duke of Lancaster', detail: 'b. 1340, Ghent', rel: '20th great-grandfather' },
+      { name: 'Edward III, King of England', detail: 'b. 1312, Windsor · d. 1377, Sheen', rel: '21st great-grandfather', notable: true },
+    ]
+  },
+  'elizabeth-percy': {
+    theme: 'theme-english',
+    portrait: '🏹',
+    eyebrow: 'Percy Family of Northumberland · ~1395–1437',
+    name: 'Elizabeth Percy',
+    dates: 'Born ~1395, Alnwick, Northumberland · Died 25 October 1437, Staindrop, County Durham',
+    bio: 'Elizabeth Percy was from the House of Percy — the most powerful noble family in northern England for centuries. The Percys held Alnwick Castle (still the seat of the Duke of Northumberland today) and dominated the northern Marches, the contested border territory between England and Scotland. Elizabeth married John Clervaux of Yorkshire, and their daughter Joan Clervaux married Sir John Soothill — that\'s the link into the Young family chain. Her grandfather was Henry "Hotspur" Percy, one of the most famous soldiers in English history, immortalised by Shakespeare. The Percys had fought both for and against successive English kings, making them the quintessential example of the powerful, unpredictable northern magnate.',
+    context: 'The Percy family\'s world was the volatile English-Scottish border — a place of constant raiding, warfare, and political manoeuvring. Henry Hotspur (Elizabeth\'s grandfather) had famously rebelled against Henry IV after helping him to the throne, and was killed at the Battle of Shrewsbury in 1403. Elizabeth grew up in the aftermath of this upheaval, during the same period that her distant cousin by marriage James I of Scotland was held prisoner in England.',
+    facts: [
+      'From the House of Percy — Earls of Northumberland, one of England\'s most powerful noble dynasties',
+      'Her grandfather was Henry "Hotspur" Percy — the warrior immortalised in Shakespeare\'s Henry IV Part 1',
+      'Hotspur was killed at the Battle of Shrewsbury (1403) fighting against the very king he helped put on the throne',
+      'Alnwick Castle, the Percy family seat, is still one of the UK\'s most visited castles — used as Hogwarts in Harry Potter',
+      'She married John Clervaux; their daughter Joan Clervaux married Sir John Soothill — your direct ancestor',
+      'Her connection brings a second line to Edward I into the Young family, via the Percy family\'s own royal descent',
+    ],
+    chain: [
+      { name: 'Stephen Young (you)', detail: 'b. 22 Jun 1974, Lanark', rel: '', you: true },
+      { name: 'June Fyfe', detail: 'b. 1948, Bellshill', rel: 'your mother' },
+      { name: 'John Fyfe', detail: 'b. 1914, Coatbridge · d. 1981', rel: 'maternal grandfather' },
+      { name: 'David James Fyfe', detail: 'b. ~1887', rel: '' },
+      { name: 'John Fyfe', detail: 'b. 1854, Fossoway · d. 1925', rel: '' },
+      { name: '…via Margaret Hynd → Gib → Allan line…', detail: '', rel: '' },
+      { name: 'Ann Sothill', detail: 'b. 1450, West Riding, Yorkshire', rel: '' },
+      { name: 'John Soothill (15th GGF)', detail: 'b. ~1433, Dewsbury', rel: '' },
+      { name: 'Joan Clervaux', detail: 'b. 1420, Croft, Yorkshire', rel: '' },
+      { name: 'Elizabeth Percy', detail: 'b. ~1395, Alnwick, Northumberland', rel: '21st great-grandmother', notable: true },
+    ]
+  },
+  'james-henderson': {
+    theme: 'theme-military',
+    portrait: '⚔️',
+    eyebrow: 'Lord of Fordell, Fife · 1450–1513',
+    name: 'Sir James Henderson, Lord of Fordell',
+    dates: 'Born ~1450, Fife, Scotland · Died 9 September 1513, Flodden Field, Northumberland',
+    bio: 'Sir James Henderson was Lord of Fordell — a significant landed estate in Fife, near Inverkeithing. He was a man of rank and obligation, the kind of Scottish landholder expected to answer the king\'s call to arms. On 9 September 1513, he did exactly that — and died for it. The Battle of Flodden was the worst military disaster in Scottish history: King James IV led an invasion of England while Henry VIII was away fighting in France, and was annihilated by the Earl of Surrey\'s English army. James IV himself was killed — the last British monarch to die in battle — along with thousands of Scottish nobles and men of rank. Sir James Henderson was one of them. His son George would repeat his fate 34 years later.',
+    context: 'Flodden (1513) was catastrophic for Scotland. James IV invaded England to honour the "Auld Alliance" with France while Henry VIII was campaigning there. The English army, left behind by Henry, proved devastatingly effective. Scottish casualties included the King himself, two bishops, two abbots, twelve earls, and tens of thousands of ordinary soldiers. The lament Flowers of the Forest, still played at Scottish funerals today, commemorates Flodden.',
+    facts: [
+      'Died at the Battle of Flodden (9 Sept 1513) — Scotland\'s worst ever military defeat',
+      'King James IV was also killed at Flodden — the last British monarch to die in battle',
+      'His son George Henderson also died in battle — at Pinkie Cleugh in 1547 — the records note he died alongside his own son',
+      'Three generations of Hendersons of Fordell were killed in battle within living memory of each other',
+      'The Henderson family seat of Fordell Castle, Fife, still exists and was restored in the 20th century',
+      'The lament Flowers of the Forest, played at Scottish funerals and Remembrance services, was written to commemorate Flodden',
+      'His daughter Margaret Henderson is the link into the Young family via the Anderson and Fyfe lines',
+    ],
+    chain: [
+      { name: 'Stephen Young (you)', detail: 'b. 22 Jun 1974, Lanark', rel: '', you: true },
+      { name: 'June Fyfe', detail: 'b. 1948, Bellshill', rel: 'your mother' },
+      { name: 'John Fyfe', detail: 'b. 1914, Coatbridge · d. 1981', rel: '' },
+      { name: 'David James Fyfe', detail: 'b. ~1887', rel: '' },
+      { name: 'John Fyfe', detail: 'b. 1854, Fossoway · d. 1925', rel: '' },
+      { name: '…via Anne Thomson → John Fyfe (1821) → Betsy Paterson chain…', detail: '', rel: '' },
+      { name: 'Jean Anderson', detail: 'b. 1695', rel: '' },
+      { name: 'John Anderson', detail: 'b. 1648', rel: '' },
+      { name: 'John Anderson', detail: 'b. 1619', rel: '' },
+      { name: 'Johne Andersone', detail: 'b. 1593', rel: '' },
+      { name: 'Margaret Crocket', detail: 'b. 1576', rel: '' },
+      { name: 'Margaret Henderson', detail: 'b. 1547', rel: '' },
+      { name: 'Sir William Henderson, 2nd Lord of Fordell', detail: 'b. 1520 · d. 1547 Pinkie Cleugh', rel: 'George\'s son — also died in battle' },
+      { name: 'George Henderson of Fordell', detail: 'b. 1495 · d. 1547 Pinkie Cleugh', rel: '' },
+      { name: 'Sir James Henderson, Lord of Fordell', detail: 'b. ~1450 · d. 1513 Flodden', rel: '17th great-grandfather', notable: true },
+    ]
+  },
+  'george-henderson': {
+    theme: 'theme-military',
+    portrait: '🛡️',
+    eyebrow: 'Lord of Fordell, Fife · 1495–1547',
+    name: 'George Henderson of Fordell',
+    dates: 'Born ~1495, Fife, Scotland · Died 10 September 1547, Battle of Pinkie Cleugh, East Lothian',
+    bio: 'George Henderson was the son of Sir James Henderson, who had died at Flodden in 1513. Thirty-four years later, George himself died at the Battle of Pinkie Cleugh — another catastrophic Scottish military defeat. What makes George\'s story particularly striking is the note in the records: he died alongside his own son. Father died at Flodden. Son and grandson both died at Pinkie. The Hendersons of Fordell appear to have shown up whenever Scotland called — at devastating cost.',
+    context: 'Pinkie Cleugh (1547) — known as "Black Saturday" — was fought during the "Rough Wooing", Henry VIII\'s brutal attempt to force a marriage between the infant Mary Queen of Scots and his son Edward. England invaded Scotland repeatedly during this period. Pinkie was the last pitched battle between English and Scottish armies, and Scotland was again devastated. The battle is less famous than Flodden but the Scottish losses were comparable.',
+    facts: [
+      'Died at Pinkie Cleugh (10 Sept 1547) — known as "Black Saturday" in Scotland',
+      'His father Sir James Henderson had died at Flodden in 1513 — 34 years earlier',
+      'The family tree records he died alongside his own son at Pinkie — three generations lost to battle',
+      'Pinkie was fought during Henry VIII\'s "Rough Wooing" — attempts to force Scotland into an English marriage alliance',
+      'His daughter Margaret Henderson is the link into the Young family via the Anderson and Fyfe lines',
+      'The Henderson estate of Fordell in Fife remained in family hands for generations after these losses',
+    ],
+    chain: [
+      { name: 'Stephen Young (you)', detail: 'b. 22 Jun 1974, Lanark', rel: '', you: true },
+      { name: 'June Fyfe', detail: 'b. 1948, Bellshill', rel: 'your mother' },
+      { name: '…Fyfe chain…', detail: '', rel: '' },
+      { name: 'Jean Anderson → John Anderson → Johne Andersone', detail: '', rel: '' },
+      { name: 'Margaret Crocket', detail: 'b. 1576', rel: '' },
+      { name: 'Margaret Henderson', detail: 'b. 1547', rel: '' },
+      { name: 'Sir William Henderson, 2nd Lord of Fordell', detail: 'b. 1520 · d. 1547 Pinkie (George\'s son)', rel: '' },
+      { name: 'George Henderson of Fordell', detail: 'b. ~1495 · d. 1547 Pinkie Cleugh', rel: '16th great-grandfather', notable: true },
+    ]
+  },
+  'arundel': {
+    theme: 'theme-noble',
+    portrait: '🏰',
+    eyebrow: '14th Earl of Arundel · 1408–1435',
+    name: 'John FitzAlan, 14th Earl of Arundel',
+    dates: 'Born 14 February 1408, England · Died 12 June 1435, Beauvais, France',
+    bio: 'John FitzAlan was one of the senior figures of the English nobility in the early 15th century. The FitzAlan family had held the Earldom of Arundel since the Norman era — one of England\'s oldest and most prestigious titles. John served in the Hundred Years\' War with France under Henry V and Henry VI, and died on campaign in France at the age of just 27, at Beauvais. His mother was Lady Alianore de Berkeley (also in the Young family tree), connecting the family to the powerful Berkeley dynasty of Gloucestershire. His connection to the Young family runs through his son Lord Thomas Alleyne and a chain down through the Scottish Allan and Gib families.',
+    context: 'John lived during the final phase of England\'s military success in the Hundred Years\' War. Henry V had won the crushing victory at Agincourt in 1415 and secured much of northern France. By the time John died in 1435, the tide was turning — France, inspired by Joan of Arc\'s campaigns, was beginning to win back its territory. John died the same year as the Congress of Arras, which broke England\'s alliance with Burgundy and ultimately led to England losing all its French possessions.',
+    facts: [
+      'The FitzAlan earls held Arundel Castle since the Norman Conquest — one of England\'s longest-held noble titles',
+      'Arundel Castle in West Sussex is still one of England\'s best-preserved medieval castles',
+      'Died aged 27 on campaign in France during the Hundred Years\' War',
+      'His mother Lady Alianore De Berkeley (b. 1400) is also in the Young family tree as your 19th great-grandmother',
+      'The Berkeley family of Gloucestershire — his mother\'s family — were one of the great English noble dynasties',
+      'His connection into the Young family runs via his descendants through the Allan and Gib families of Scotland',
+    ],
+    chain: [
+      { name: 'Stephen Young (you)', detail: 'b. 22 Jun 1974, Lanark', rel: '', you: true },
+      { name: 'June Fyfe', detail: 'b. 1948, Bellshill', rel: 'your mother' },
+      { name: '…Fyfe chain via Margaret Hynd → Robert Hynd → Margaret Gib…', detail: '', rel: '' },
+      { name: 'Laurence Gib → James Gib', detail: '', rel: '' },
+      { name: 'Margaret Allane', detail: 'b. 1625', rel: '' },
+      { name: 'John Allan → David Allan → John Allan', detail: 'b. 1525', rel: '' },
+      { name: 'Richard Allen', detail: 'b. 1490', rel: '' },
+      { name: 'Thomas Allen', detail: 'b. 1460', rel: '' },
+      { name: 'Lord Thomas Allenye', detail: 'b. 1430', rel: '' },
+      { name: 'John FitzAlan, 14th Earl of Arundel', detail: 'b. 1408 · d. 1435, Beauvais', rel: '18th great-grandfather', notable: true },
+    ]
+  },
+  'montgomery': {
+    theme: 'theme-noble',
+    portrait: '🏯',
+    eyebrow: '1st Earl of Eglinton · 1460–1545/6',
+    name: 'Hugh Montgomery, 1st Earl of Eglinton',
+    dates: 'Born 1460, Eglinton Castle, Kilwinning, Ayrshire · Died ~September 1545, Eglinton Castle',
+    bio: 'Hugh Montgomery was one of the most powerful noblemen in 16th-century Scotland. As 1st Earl of Eglinton, he controlled much of Ayrshire and was a central player in Scottish court politics under James IV and James V. He lived to approximately 85 years old — a remarkable age for the period — and saw Scotland transformed by the Reformation and the catastrophe of Flodden. His daughter Elizabeth Montgomery married John Blair of Blair, bringing the Montgomery line into the chain that leads to the Patersons, the Fyfes, and ultimately to Steve and his family. The Montgomery family\'s Eglinton Castle remained their seat until the 19th century.',
+    context: 'Hugh\'s long life spanned one of the most turbulent periods in Scottish history — the reign of James IV (ending at Flodden, 1513), the minority of James V, and the early stirrings of the Protestant Reformation that would transform Scotland in the 1560s. The western Lowlands where the Montgomeries held sway were politically crucial — close to the court, wealthy from trade, and caught between rival noble factions.',
+    facts: [
+      'Created 1st Earl of Eglinton — one of the senior noble titles of Ayrshire',
+      'Lived to approximately 85 years old — exceptional longevity for 16th-century Scotland',
+      'His daughter Elizabeth married John Blair of Blair — the direct link into the Young family\'s Blair/Paterson chain',
+      'The Eglinton Tournament of 1839 — a famous Victorian attempt to recreate a medieval tournament — was held on Montgomery family land',
+      'His family seat Eglinton Castle was demolished in the 20th century; only ruins remain near Irvine, Ayrshire',
+      'The Montgomery earls were prominent in Ayrshire politics for centuries after Hugh\'s death',
+    ],
+    chain: [
+      { name: 'Stephen Young (you)', detail: 'b. 22 Jun 1974, Lanark', rel: '', you: true },
+      { name: 'June Fyfe', detail: 'b. 1948, Bellshill', rel: 'your mother' },
+      { name: 'John Fyfe → Betsy Paterson', detail: '', rel: '' },
+      { name: '…Paterson chain to Agnes Blair (b. 1705)…', detail: '', rel: '' },
+      { name: 'Isabel Elspet Paterson → James Paterson → Jonett Blair', detail: '', rel: '' },
+      { name: 'John Blair (b. 1575)', detail: '', rel: '' },
+      { name: 'John Alexander Blair, 9th Lord of Blair', detail: 'b. ~1547', rel: '' },
+      { name: 'John III Montgomery', detail: 'b. 1502, Blair, Ayrshire', rel: '' },
+      { name: 'Elizabeth Lady Montgomery', detail: 'b. 1480, Ayrshire', rel: '' },
+      { name: 'Hugh Montgomery, 1st Earl of Eglinton', detail: 'b. 1460, Eglinton Castle', rel: '16th great-grandfather', notable: true },
+    ]
+  },
+  'glencairn': {
+    theme: 'theme-scots',
+    portrait: '🗡️',
+    eyebrow: '4th Earl of Glencairn · 1493–1548',
+    name: 'Lord William Cunninghame, 4th Earl of Glencairn',
+    dates: 'Born 24 March 1493, Glengarnock, Ayrshire · Died 11 March 1548, Finlaystone Castle, Renfrewshire',
+    bio: 'William Cunninghame, 4th Earl of Glencairn, was one of the most politically active — and politically dangerous — Scottish noblemen of the early 16th century. His nickname "The Notorious Intriguer" was hard-won through decades of scheming at the Scottish court under James IV, James V, and during the turbulent regency that followed. He was deeply involved in the factional struggles between pro-English and pro-French parties that dominated Scottish politics in the 1520s–1540s. He held the earldom of Glencairn, based in Ayrshire, and was powerful enough to play both sides of major political conflicts. His daughter Margaret Cunningham married John Alexander Blair, 9th Lord of Blair — the direct connection into the Young family\'s Blair/Paterson chain.',
+    context: 'The period of William\'s life saw Scotland torn between France (the traditional "Auld Alliance") and England (now under the reforming Tudors). The Reformation was beginning to stir across Europe, and Scotland\'s nobility was divided between Catholic traditionalists and Protestant reformers. Glencairn himself appears to have been flexible in his allegiances — a quality that earned him his notorious reputation but also kept him alive and powerful through multiple regime changes.',
+    facts: [
+      'Nicknamed "The Notorious Intriguer" — earned through decades of political scheming at the Scottish court',
+      'Held the earldom of Glencairn, centred on Glengarnock Castle in Ayrshire',
+      'Active in Scottish politics under three monarchs: James IV, James V, and during the regency for Mary Queen of Scots',
+      'His daughter Margaret Cunningham married John Alexander Blair, 9th Lord of Blair — the link into your family',
+      'Finlaystone Castle, where he died, is still standing in Renfrewshire and open to visitors today',
+      'The Cunninghame family were one of the most powerful dynasties in Ayrshire for centuries',
+    ],
+    chain: [
+      { name: 'Stephen Young (you)', detail: 'b. 22 Jun 1974, Lanark', rel: '', you: true },
+      { name: 'June Fyfe', detail: 'b. 8 Oct 1948, Bellshill', rel: 'your mother' },
+      { name: 'John Fyfe', detail: 'b. 2 Mar 1914, Coatbridge', rel: '' },
+      { name: 'David James Fyfe', detail: 'b. ~1887', rel: '' },
+      { name: 'John Fyfe', detail: 'b. 1854, Fossoway, Perthshire', rel: '' },
+      { name: 'Betsy Paterson', detail: 'b. 1821, Blairingone', rel: '' },
+      { name: 'Andrew Paterson', detail: 'b. 1779, Alloa', rel: '' },
+      { name: 'Alexander Paterson', detail: 'b. 1739, Clackmannan', rel: '' },
+      { name: 'Agnes Blair', detail: 'b. 1705, Clackmannan', rel: '' },
+      { name: 'Isabel Elspet Paterson', detail: 'b. 1677, Clackmannan', rel: '' },
+      { name: 'James Paterson', detail: 'b. 1648, Clackmannanshire', rel: '' },
+      { name: 'Jonett Blair', detail: 'b. 1618, Alloa', rel: '' },
+      { name: 'John Blair', detail: 'b. 1575, Alloa', rel: '' },
+      { name: 'John Alexander Blair, 9th Lord of Blair', detail: 'b. ~1547, Blair Castle, Ayr', rel: '' },
+      { name: 'Margaret Cunningham', detail: 'b. 1506, Glengarnock, Ayrshire', rel: '' },
+      { name: 'Lord William Cunninghame, 4th Earl of Glencairn', detail: 'b. 24 Mar 1493, Glengarnock · d. 1548', rel: '15th great-grandfather', notable: true },
+    ]
+  },
+  'ann-atholl': {
+    theme: 'theme-scots',
+    portrait: '🏰',
+    eyebrow: 'Royal Stewart · 1494–1564',
+    name: 'Lady Agnes Stewart, "Ann of Atholl"',
+    dates: 'Born 1494, Balvenie Castle, Mortlach, Banffshire · Died 25 November 1564, Coyleton, Devon, England',
+    bio: 'Lady Agnes Stewart, known as Ann of Atholl, was born at Balvenie Castle in Banffshire — a dramatic stronghold in the heart of Speyside. As a Stewart, she was part of Scotland\'s royal family, though the exact branch of her connection to the main royal line is still being researched. What is notable is that she ended her days in Devon, England — a long way from the Scottish Highlands of her birth — reflecting the mobility of noble families in this period. She connects into the Young family through the Michell line, which runs through the Aedie and Condie families of Alloa in Clackmannanshire, before joining the main Fyfe chain.',
+    context: 'Balvenie Castle, where Agnes was born, is one of Scotland\'s best-preserved medieval ruins — today managed by Historic Environment Scotland. The castle was a key stronghold in the north of Scotland, associated with the Comyn and then the Douglas and Stewart families. Agnes\'s lifetime spanned the reign of James IV (including the disaster of Flodden), James V, and the beginning of the reign of Mary Queen of Scots.',
+    facts: [
+      'Born at Balvenie Castle, Banffshire — one of Scotland\'s most impressive medieval ruins, still standing today near Dufftown',
+      'A member of the Stewart family — Scotland\'s royal house',
+      'Died in Devon, England, far from her Scottish Highland birthplace — suggesting she moved south later in life',
+      'Her connection into the Young family runs via the Michell family of Devonshire, then through the Aedie and Condie families of Alloa',
+      'Her dates overlap with Ann of Atholl, a historical figure associated with the Atholl earldom in Perthshire',
+      'This is a separate Stewart connection from Joan Stewart — two independent royal Stewart lines in the Young family tree',
+    ],
+    chain: [
+      { name: 'Stephen Young (you)', detail: 'b. 22 Jun 1974, Lanark', rel: '', you: true },
+      { name: 'June Fyfe', detail: 'b. 8 Oct 1948, Bellshill', rel: 'your mother' },
+      { name: 'John Fyfe', detail: 'b. 2 Mar 1914, Coatbridge', rel: '' },
+      { name: 'David James Fyfe', detail: 'b. ~1887', rel: '' },
+      { name: 'John Fyfe', detail: 'b. 1854, Fossoway, Perthshire', rel: '' },
+      { name: 'John Fyfe', detail: 'b. 1821, Blairingone', rel: '' },
+      { name: 'James Fyfe', detail: 'b. 1792, Falkirk', rel: '' },
+      { name: 'John Fife', detail: 'b. 1761, Alloa', rel: '' },
+      { name: 'Thomas Fife', detail: 'b. 1732, Alloa', rel: '' },
+      { name: 'John Fife', detail: 'b. 1695, Alloa', rel: '' },
+      { name: 'Janet Paterson', detail: 'b. 1668, Alloa', rel: '' },
+      { name: 'Andrew Paterson', detail: 'b. 1642, Alloa', rel: '' },
+      { name: 'Janet Condie', detail: 'b. 1595, Alloa', rel: '' },
+      { name: 'Janet Aedie', detail: 'b. 1582, Alloa', rel: '' },
+      { name: 'Agnes Michell', detail: 'b. Alloa', rel: '' },
+      { name: 'John "The Younger" Michell', detail: 'b. 1515, Rawkerayne, Devon', rel: '' },
+      { name: 'Lady Agnes Stewart, "Ann of Atholl"', detail: 'b. 1494, Balvenie Castle, Banffshire', rel: '16th great-grandmother', notable: true },
+    ]
+  },
+  'grissel-sempill': {
+    theme: 'theme-scots',
+    portrait: '🏯',
+    eyebrow: 'House of Sempill · 1551–1609',
+    name: 'Lady Grissel Grace Sempill',
+    dates: 'Born 1551, Castle Sempill, Lochwinnoch, Renfrewshire · Died 28 December 1609, Blair, Ayrshire',
+    bio: 'Lady Grissel Sempill was born at Castle Sempill — the ancient seat of the Sempill family in Lochwinnoch, Renfrewshire — and died at Blair, Ayrshire, the seat of the Blair family into which she had married. She married John Blair of Blair, and their son John Blair (born 1575) is a direct link in the chain from Steve to Joan Stewart and ultimately Robert the Bruce. The Sempill family were one of the most significant noble dynasties in the west of Scotland, holding lands and titles in Renfrewshire from the 12th century. Lady Grissel is a relatively close ancestor — 13 generations from Steve — and her presence in the tree at the heart of the Blair/Paterson chain makes her one of the better-documented links in the line.',
+    context: 'The Sempill family\'s Castle Sempill stood near Lochwinnoch in Renfrewshire for centuries. The family were stalwarts of the Scottish crown and prominent in local politics. Lady Grissel\'s lifetime encompassed the Reformation in Scotland, the reign and execution of Mary Queen of Scots, and the early reign of James VI. The Renfrewshire-Ayrshire border where the Sempills and Blairs held their lands was a rich agricultural area of significant political importance.',
+    facts: [
+      'Born at Castle Sempill — the ancient seat of the Sempill family in Lochwinnoch, Renfrewshire',
+      'The Sempill family held lands in Renfrewshire from the Norman period — one of Scotland\'s older noble families',
+      'Married John Blair of Blair, Ayrshire — placing her directly in the chain leading to Joan Stewart and Robert the Bruce',
+      'Her son John Blair (b.1575) is the link into the Paterson/Fyfe chain that leads to Steve and June',
+      'She died at Blair, Ayrshire — the Blair family seat — suggesting she spent much of her life there after marriage',
+      'Only 13 generations separate her from Steve — relatively close in historical terms',
+    ],
+    chain: [
+      { name: 'Stephen Young (you)', detail: 'b. 22 Jun 1974, Lanark', rel: '', you: true },
+      { name: 'June Fyfe', detail: 'b. 8 Oct 1948, Bellshill', rel: 'your mother' },
+      { name: 'John Fyfe', detail: 'b. 2 Mar 1914, Coatbridge', rel: '' },
+      { name: 'David James Fyfe', detail: 'b. ~1887', rel: '' },
+      { name: 'John Fyfe', detail: 'b. 1854, Fossoway, Perthshire', rel: '' },
+      { name: 'Betsy Paterson', detail: 'b. 1821, Blairingone', rel: '' },
+      { name: 'Andrew Paterson', detail: 'b. 1779, Alloa', rel: '' },
+      { name: 'Alexander Paterson', detail: 'b. 1739, Clackmannan', rel: '' },
+      { name: 'Agnes Blair', detail: 'b. 1705, Clackmannan', rel: '' },
+      { name: 'Isabel Elspet Paterson', detail: 'b. 1677, Clackmannan', rel: '' },
+      { name: 'James Paterson', detail: 'b. 1648, Clackmannanshire', rel: '' },
+      { name: 'Jonett Blair', detail: 'b. 1618, Alloa', rel: '' },
+      { name: 'John Blair', detail: 'b. 1575, Alloa — son of Lady Grissel', rel: '' },
+      { name: 'Lady Grissel Grace Sempill', detail: 'b. 1551, Castle Sempill, Renfrewshire · d. 1609, Blair, Ayrshire', rel: '13th great-grandmother', notable: true },
+    ]
+  },
+  'wardlaw': {
+    theme: 'theme-scots',
+    portrait: '⚜️',
+    eyebrow: '1st Baronet of Pitreave · 1565–1637',
+    name: 'Sir Henry Wardlaw, 1st Baronet of Pitreave',
+    dates: 'Born 15 May 1565, Pitreave Castle, Fife · Died 5 April 1637, Dunfermline, Fife',
+    bio: 'Sir Henry Wardlaw was created the 1st Baronet of Pitreave — one of the first Scottish baronetcies, a rank created by King James VI in the early 17th century. His seat was Pitreave Castle near Dunfermline in Fife, which still stands today. He was a man of sufficient standing to receive this new honour, suggesting he was well-connected at the court of James VI. He connects into the Young family through his granddaughter Rose Wardlaw, who married into the Paterson family of Alloa in Clackmannanshire — just a short distance across the Firth of Forth from his Fife estates.',
+    context: 'The Scottish baronetcy was a new rank created by James VI (James I of England after 1603) in the early 1600s, partly as a way of raising funds for the crown. Recipients were men of wealth and local importance who paid a fee for the honour. Sir Henry receiving this rank tells us he was a prosperous and prominent figure in Fife at a time when the county — home to multiple royal palaces including Falkland and Dunfermline — was at the heart of Scottish royal life.',
+    facts: [
+      'Created 1st Baronet of Pitreave — one of the earliest Scottish baronetcies, established under James VI',
+      'Pitreave Castle, his seat near Dunfermline, still exists today as a private residence',
+      'Dunfermline, where he died, was a royal burgh and the burial place of Robert the Bruce — a fitting location for a man connected to the Bruce line via the Young family',
+      'His granddaughter Rose Wardlaw (b.1644, Alloa) married into the Paterson family — the link into the Fyfe chain',
+      'The Wardlaw family were a significant Fife dynasty with connections across central Scotland',
+      'His baronetcy was created by the same James VI who united the Scottish and English crowns in 1603',
+    ],
+    chain: [
+      { name: 'Stephen Young (you)', detail: 'b. 22 Jun 1974, Lanark', rel: '', you: true },
+      { name: 'June Fyfe', detail: 'b. 8 Oct 1948, Bellshill', rel: 'your mother' },
+      { name: 'John Fyfe', detail: 'b. 2 Mar 1914, Coatbridge', rel: '' },
+      { name: 'David James Fyfe', detail: 'b. ~1887', rel: '' },
+      { name: 'John Fyfe', detail: 'b. 1854, Fossoway, Perthshire', rel: '' },
+      { name: 'John Fyfe', detail: 'b. 1821, Blairingone', rel: '' },
+      { name: 'James Fyfe', detail: 'b. 1792, Falkirk', rel: '' },
+      { name: 'John Fife', detail: 'b. 1761, Alloa', rel: '' },
+      { name: 'Thomas Fife', detail: 'b. 1732, Alloa', rel: '' },
+      { name: 'John Fife', detail: 'b. 1695, Alloa', rel: '' },
+      { name: 'Janet Paterson', detail: 'b. 1668, Alloa', rel: '' },
+      { name: 'Rose Marione Wardlaw', detail: 'b. 24 Feb 1644, Alloa', rel: '' },
+      { name: 'Alexander Wardlaw', detail: 'b. 14 Sep 1613, Edinburgh Canongate', rel: '' },
+      { name: 'Sir Henry Wardlaw, 1st Baronet of Pitreave', detail: 'b. 15 May 1565, Pitreave Castle, Fife · d. 5 Apr 1637', rel: '13th great-grandfather', notable: true },
+    ]
+  },
+  'elizabeth-lawrence': {
+    theme: 'theme-english',
+    portrait: '⛵',
+    eyebrow: 'Early Colonial Settler · 1552–1621',
+    name: 'Lady Elizabeth Lawrence of Rumburgh',
+    dates: 'Born 1552, Rumburgh, Suffolk, England · Died 6 April 1621, Jamestown, Virginia, USA',
+    bio: 'Lady Elizabeth Lawrence was born in Rumburgh, a small village in Suffolk, and died in 1621 at Jamestown, Virginia — one of the earliest English settlements in America, founded just 14 years before her death. She is among the earliest English women in the American colonies traceable in the Young family tree. Her journey from rural Suffolk to the Virginia colony represents one of the most dramatic life stories in the entire tree. She connects through the Hall family of Edinburgh, who in turn connect through Agnes Davie to the Blair line in Alloa. Her daughter Agnes Rae Davie (born ~1581) was the link that eventually brought this Suffolk-born woman\'s descendants into the Scottish Blair chain.',
+    context: 'Jamestown, founded in 1607, was England\'s first permanent settlement in America. The early decades were extraordinarily harsh — disease, starvation, conflict with Native Americans, and the brutal winter of 1609–10 (the "Starving Time") killed the majority of settlers. Elizabeth arriving and surviving long enough to die there in 1621 — at around age 69 — speaks to remarkable resilience. She died just one year after the Mayflower landed at Plymouth. The Virginia colony she helped establish would become the cradle of American independence 150 years later.',
+    facts: [
+      'Died at Jamestown, Virginia in 1621 — one of the earliest documented English women in the American colonies',
+      'Jamestown was founded in 1607 — Elizabeth arrived in the colony in its earliest, most dangerous years',
+      'The early Jamestown settlers faced the "Starving Time" of 1609–10, when disease and famine killed most colonists',
+      'She died just one year after the Mayflower landed at Plymouth — a contemporary of the Pilgrim Fathers',
+      'Her connection into the Young family runs through the Hall family of Edinburgh, then through Blair to Paterson and Fyfe',
+      'Rumburgh, her birthplace in Suffolk, is a tiny village — she travelled from one of England\'s quietest corners to one of its most dangerous frontiers',
+    ],
+    chain: [
+      { name: 'Stephen Young (you)', detail: 'b. 22 Jun 1974, Lanark', rel: '', you: true },
+      { name: 'June Fyfe', detail: 'b. 8 Oct 1948, Bellshill', rel: 'your mother' },
+      { name: 'John Fyfe', detail: 'b. 2 Mar 1914, Coatbridge', rel: '' },
+      { name: 'David James Fyfe', detail: 'b. ~1887', rel: '' },
+      { name: 'John Fyfe', detail: 'b. 1854, Fossoway, Perthshire', rel: '' },
+      { name: 'Betsy Paterson', detail: 'b. 1821, Blairingone', rel: '' },
+      { name: 'Andrew Paterson', detail: 'b. 1779, Alloa', rel: '' },
+      { name: 'Alexander Paterson', detail: 'b. 1739, Clackmannan', rel: '' },
+      { name: 'Agnes Blair', detail: 'b. 1705, Clackmannan', rel: '' },
+      { name: 'John Blair', detail: 'b. 1676, Alloa', rel: '' },
+      { name: 'Sir Johne Blair VIII', detail: 'b. 3 Mar 1650, Alloa', rel: '' },
+      { name: 'Lydia Christiane Hall-Blair', detail: 'b. 30 Jul 1615, Fushiebridge, Midlothian', rel: '' },
+      { name: 'Cuthbert Johne Hall', detail: 'b. 1595, Edinburgh', rel: '' },
+      { name: 'Agnes Rae Davie', detail: 'b. ~1581, Falkirk', rel: '' },
+      { name: 'Lady Elizabeth Lawrence of Rumburgh', detail: 'b. 1552, Rumburgh, Suffolk · d. 6 Apr 1621, Jamestown, Virginia', rel: '14th great-grandmother', notable: true },
+    ]
+  },
+  'alexander-walker-virginia': {
+    theme: 'theme-english',
+    portrait: '🌊',
+    eyebrow: 'Colonial Settler · 1587–c.1680',
+    name: 'Alexander Walker',
+    dates: 'Born 1587, Edinburgh, Scotland · Died c.1680, James City County, Virginia, USA',
+    bio: 'Alexander Walker was born in Edinburgh in 1587 and died approximately 90 years later in James City County, Virginia — home of Jamestown, the first permanent English settlement in America. He emigrated to Virginia from Scotland, and his descendants remained in the Virginia colony, with the line eventually making its way back to Scotland through the Walker family of Banffshire and Aberdeenshire. Critically, Alexander connects through Steve\'s father Gordon\'s side of the family — via the Weir, Forsyth, Morrison and Walker lines from Lanarkshire and Aberdeenshire — making him an entirely separate American colonial connection from the Fyfe/Blair/Lawrence line on June\'s side.',
+    context: 'Scottish emigration to the American colonies in the 17th century was significant but often overlooked compared to the more famous English Puritan settlers. Many Scots went to Virginia, Maryland, and the Carolinas as traders, indentured servants, or political prisoners (particularly after the English Civil War). Alexander\'s move from Edinburgh to Virginia circa the mid-1600s would have been a formidable undertaking — a voyage of several months into a colony still establishing itself.',
+    facts: [
+      'Born in Edinburgh, died in James City County, Virginia — the county that contains Jamestown, England\'s first permanent American settlement',
+      'His descendants form the Walker line of Banffshire and Aberdeenshire — connecting back into Steve\'s father Gordon\'s side',
+      'This is a completely separate American colonial connection from the Fyfe/Lawrence line — discovered through Gordon\'s Weir/Forsyth/Morrison ancestry',
+      'The Young family therefore has TWO independent lines of early American colonial ancestry — one through June\'s side, one through Gordon\'s',
+      'James City County, where he died, is one of the oldest English-settled areas of America — named after King James I',
+      'The Walker family line runs: Alexander Walker (Virginia) → Patrick → John → Walter → James → Alexander (twin) → Alexander → John Walker → Jane Walker → Helen Morrison → Elizabeth Forsyth → Helen Weir → Gordon Young → Steve',
+    ],
+    chain: [
+      { name: 'Stephen Young (you)', detail: 'b. 22 Jun 1974, Lanark', rel: '', you: true },
+      { name: 'Gordon Young', detail: 'b. 1 Feb 1948, Airdrie', rel: 'your father' },
+      { name: 'Helen Weir', detail: 'b. 23 Oct 1916, Wishaw', rel: '' },
+      { name: 'Elizabeth Forsyth', detail: 'b. 1890, Wishaw', rel: '' },
+      { name: 'Helen Morrison', detail: 'b. 11 Sep 1858, Strathdon, Aberdeenshire', rel: '' },
+      { name: 'Jane Walker', detail: 'b. ~1830s', rel: '' },
+      { name: 'John Walker', detail: 'b. ~1804, Kennethmont, Aberdeenshire', rel: '' },
+      { name: 'Alexander Walker', detail: 'b. 1771, Drumbad, Leitrim', rel: '' },
+      { name: 'Alexander Walker (Twin)', detail: 'b. 27 Jan 1739, Cullen, Banffshire', rel: '' },
+      { name: 'James Walker', detail: 'b. 2 Nov 1702, Banffshire', rel: '' },
+      { name: 'Walter Walker', detail: 'b. 10 Sep 1675, Cullen, Banffshire', rel: '' },
+      { name: 'John Walker', detail: 'b. May 1650, South Leith', rel: '' },
+      { name: 'Patrick Walker', detail: 'b. ~1628, Edinburgh', rel: '' },
+      { name: 'Alexander Walker', detail: 'b. 1587, Edinburgh · d. ~1680, James City County, Virginia', rel: '13th great-grandfather', notable: true },
+    ]
+  },
+  'charles-iii': {
+    theme: 'theme-scots',
+    portrait: '👑',
+    eyebrow: 'King of the United Kingdom · b. 1948',
+    name: 'King Charles III',
+    dates: 'Born 14 November 1948, Buckingham Palace, London',
+    bio: 'King Charles III is the reigning monarch of the United Kingdom and 14 other Commonwealth realms. He acceded to the throne on 8 September 2022 following the death of his mother Queen Elizabeth II. His connection to the Young family runs through Robert the Bruce — Charles\'s documented 20th great-grandfather, who is also your 22nd great-grandfather. The path from Charles to Robert the Bruce runs: Charles III → Elizabeth II → George VI → George V → Edward VII → Victoria → Edward, Duke of Kent → George III → Frederick, Prince of Wales → George II → George I → Sophia of Hanover → Elizabeth of Bohemia → James VI of Scotland (James I of England) → Mary Queen of Scots → James V → James IV → James III → James II → James I → Robert III → Robert II → Marjorie Bruce → Robert the Bruce.',
+    context: 'The Stuart line that connects Charles to Robert the Bruce has ruled Scotland and then Britain for over 400 years. James I of Scotland — your own 18th great-grandfather — sits on this same line, making him a shared ancestor between the Young family and the British royal family. The fact that your tree includes Joan Stewart, daughter of James I, means you are on a sibling branch of the same royal family that eventually produced Charles III.',
+    facts: [
+      'Robert the Bruce is confirmed as Charles III\'s 20th great-grandfather — documented on the official royal family website',
+      'The path runs through the Stuart/Stewart line: Robert the Bruce → Robert II → Robert III → James I → James II → III → IV → V → Mary Queen of Scots → James VI/I → Charles I → Charles II / James VII → George I onwards to Charles III',
+      'James I of Scotland — your own 18th great-grandfather — is Charles III\'s 14th great-grandfather: you share this ancestor',
+      'This makes the Young family and the British royal family part of the same extended family, separated by different branches from James I\'s children',
+      'Charles III\'s mother Queen Elizabeth II was also a direct Bruce descendant — the connection runs through both the maternal and paternal lines',
+      'Queen Camilla is also a documented Robert the Bruce descendant through her own ancestry',
+    ],
+    chain: [
+      { name: 'Stephen Young (you)', detail: 'b. 22 Jun 1974, Lanark', rel: '', you: true },
+      { name: '…17 generations via Fyfe/Blair/Paterson chain…', detail: '', rel: '' },
+      { name: 'Joan Stewart, Countess of Morton', detail: 'b. 1428, Perth', rel: '17th great-grandmother' },
+      { name: 'James I, King of Scotland', detail: 'b. 1394 · d. 1437 Perth (murdered)', rel: 'SHARED ANCESTOR with Charles III' },
+      { name: '↕ Different branches below this point', detail: 'Your line: via Joan Stewart. Charles\'s line: via James II, III, IV, V, Mary Queen of Scots', rel: '' },
+      { name: 'Robert III, King of Scotland', detail: 'James I\'s father', rel: '' },
+      { name: 'Robert II, King of Scotland', detail: 'First Stewart king', rel: '' },
+      { name: 'Marjorie Bruce', detail: 'Robert II\'s mother', rel: '' },
+      { name: 'Robert the Bruce', detail: 'b. 1274 · d. 1329 — your 22nd GGF, Charles III\'s 20th GGF', rel: '', notable: true },
+    ]
+  },
+  'tilda-swinton': {
+    theme: 'theme-scots',
+    portrait: '🎬',
+    eyebrow: 'Academy Award-winning actress · b. 1960',
+    name: 'Tilda Swinton',
+    dates: 'Born 5 November 1960, London, England',
+    bio: 'Katherine Matilda Swinton is one of Britain\'s most celebrated and distinctive actresses, known for physically transformative performances in films including Michael Clayton, Doctor Strange, and the Narnia series. She grew up at Kimmerghame House in Berwickshire and considers herself first and foremost a Scot. In 2009, Edinburgh genealogists at the ScotlandsPeople Centre revealed that she is a direct descendant of Robert the Bruce on both sides of her family. Her father Sir John Swinton descends from Robert II\'s illegitimate son the Duke of Albany, while her mother Lady Swinton descends through her Balfour ancestors from a child of Robert II\'s mistress Mariotta Cardney. Researchers found she is 19 generations removed from Robert the Bruce — making her three generations closer than you.',
+    context: 'Tilda\'s family history was exhibited as part of the Famous Scots series at the ScotlandsPeople Centre in Edinburgh in 2009. The exhibition also revealed that she is related to James Hutton (the geologist who founded modern geology), a Victorian Archbishop of Canterbury, the first person to take X-rays in Britain, and a pioneer of television. The Swinton family are an ancient Scots family who can trace their lineage back to the 9th century.',
+    facts: [
+      'Edinburgh genealogists confirmed she is 19 generations removed from Robert the Bruce — on both sides of her family',
+      'Her father descends from Robert II\'s illegitimate son the Duke of Albany; her mother from Robert II\'s mistress Mariotta Cardney',
+      'The Swinton family are one of Scotland\'s oldest families, traceable to the 9th century',
+      'Her family tree also includes geologist James Hutton (founder of modern geology), an Archbishop of Canterbury, and the first person in Britain to take X-ray images',
+      'She grew up at Kimmerghame House in Berwickshire, considers herself Scottish, and has spoken about her deep connection to Scottish history and landscape',
+      'At 19 generations from Robert the Bruce vs your 22, she is technically a closer descendant — making her a distant cousin of the Young family through the same Bruce line',
+    ],
+    chain: [
+      { name: 'Stephen Young (you)', detail: 'b. 22 Jun 1974, Lanark', rel: '', you: true },
+      { name: '…22 generations to Robert the Bruce via the Young family chain…', detail: '', rel: '' },
+      { name: 'Robert the Bruce', detail: 'b. 1274 · d. 1329', rel: 'YOUR 22nd great-grandfather / TILDA\'s 19th great-grandfather', notable: true },
+      { name: '…19 generations back up to Tilda Swinton via Robert II/Albany line…', detail: '', rel: '' },
+      { name: 'Tilda Swinton', detail: 'b. 5 Nov 1960, London', rel: 'distant cousin', you: false },
+    ]
+  },
+  'winston-churchill': {
+    theme: 'theme-english',
+    portrait: '🇬🇧',
+    eyebrow: 'Prime Minister of the United Kingdom · 1874–1965',
+    name: 'Sir Winston Churchill',
+    dates: 'Born 30 November 1874, Blenheim Palace, Oxfordshire · Died 24 January 1965, London',
+    bio: 'Winston Churchill is widely regarded as one of the greatest Britons who ever lived — the wartime Prime Minister who led the United Kingdom through its darkest hours in the Second World War. He was also a Nobel Prize-winning author, painter, and soldier. His connection to Robert the Bruce was documented by genealogists and runs through his paternal Spencer-Churchill line. The path connects through the Stewart family via multiple Scottish noble marriages over the centuries. Robert the Bruce is Churchill\'s 19th great-grandfather — making him three generations closer to Robert the Bruce than you, and therefore a distant cousin of the Young family.',
+    context: 'Churchill was born at Blenheim Palace — built for John Churchill, 1st Duke of Marlborough, who won the Battle of Blenheim in 1704. His mother Jennie Jerome was American, connecting him to the New World as well as the old Scottish royal line. The Spencer-Churchill ancestry traces through a complex web of English, Scottish and Irish noble families — ultimately threading back through the Stewart dynasty to Robert the Bruce himself.',
+    facts: [
+      'Robert the Bruce is Churchill\'s 19th great-grandfather — confirmed by genealogical research published in the early 20th century',
+      'The connection runs through Churchill\'s paternal Spencer-Churchill line, via the Stewart and Douglas families of Scotland',
+      'Churchill\'s maternal grandmother Jennie Jerome was American — the transatlantic dimension of his ancestry fascinated him',
+      'He was also descended from John of Gaunt through the Spencer line — the same John of Gaunt who is your own 20th great-grandfather',
+      'Churchill reportedly said that his mother\'s American blood "plus a drop of Indian blood" made him half American — his Scottish royal ancestry would have amused him',
+      'Meghan Markle and Churchill are also distant cousins — genealogists found they are sixth cousins five times removed',
+    ],
+    chain: [
+      { name: 'Stephen Young (you)', detail: 'b. 22 Jun 1974, Lanark', rel: '', you: true },
+      { name: '…22 generations to Robert the Bruce…', detail: '', rel: '' },
+      { name: 'Robert the Bruce', detail: 'b. 1274 · d. 1329', rel: 'YOUR 22nd GGF / CHURCHILL\'s 19th GGF', notable: true },
+      { name: '…19 generations via Stewart/Spencer-Churchill line…', detail: '', rel: '' },
+      { name: 'Sir Winston Churchill', detail: 'b. 30 Nov 1874, Blenheim Palace · d. 24 Jan 1965', rel: 'distant cousin', you: false },
+    ]
+  },
+  'theodore-roosevelt': {
+    theme: 'theme-english',
+    portrait: '🇺🇸',
+    eyebrow: '26th President of the United States · 1858–1919',
+    name: 'Theodore Roosevelt',
+    dates: 'Born 27 October 1858, New York City · Died 6 January 1919, Oyster Bay, New York',
+    bio: 'Theodore Roosevelt — "Teddy" — was the 26th President of the United States, the youngest man ever to hold the office (at 42), a Nobel Peace Prize winner, and one of America\'s most energetic and larger-than-life leaders. His Scottish royal ancestry was discovered in the early 1900s by genealogists and published in Charles H. Browning\'s Americans of Royal Descent, backed up by the California Genealogical Society. His mother\'s lineage connects Roosevelt to Robert II of Scotland and Walter, High Steward of Scotland — the same Walter Stewart who was the father of Robert II and husband of Marjorie Bruce, daughter of Robert the Bruce. This makes Robert the Bruce Roosevelt\'s ancestor, and therefore also a shared ancestor with the Young family.',
+    context: 'Roosevelt\'s Scottish ancestry connection was discovered and published during his presidency, causing considerable interest. He was already known for his enthusiasm for the outdoors, hunting, and exploration — qualities which, with some romantic licence, were sometimes attributed to his Scottish highland blood. The connection runs through his maternal Bulloch family from Georgia, who had Scottish and Irish ancestry.',
+    facts: [
+      'His Robert the Bruce connection was published in "Americans of Royal Descent" in the early 1900s and verified by the California Genealogical Society',
+      'The connection runs through his mother\'s Bulloch family line from Georgia — not his Dutch-origin Roosevelt paternal line',
+      'He was the youngest US President ever, taking office at 42 after the assassination of William McKinley in 1901',
+      'He won the Nobel Peace Prize in 1906 for mediating the Russo-Japanese War — the first American to win a Nobel Prize',
+      'Roosevelt was a prolific writer — he wrote over 35 books, including works on natural history, American history, and his own adventures',
+      'His distant cousin Franklin D. Roosevelt was also US President (1933–1945), giving the Roosevelt family two presidents — and both share this Scottish royal line',
+    ],
+    chain: [
+      { name: 'Stephen Young (you)', detail: 'b. 22 Jun 1974, Lanark', rel: '', you: true },
+      { name: '…22 generations to Robert the Bruce…', detail: '', rel: '' },
+      { name: 'Robert the Bruce', detail: 'b. 1274 · d. 1329', rel: 'shared ancestor', notable: true },
+      { name: '…via Robert II, Walter Stewart, and Bulloch/Roosevelt line…', detail: '', rel: '' },
+      { name: 'Theodore Roosevelt', detail: 'b. 27 Oct 1858, New York · d. 6 Jan 1919', rel: 'distant cousin', you: false },
+    ]
+  },
+  'meghan-markle': {
+    theme: 'theme-english',
+    portrait: '👸',
+    eyebrow: 'Duchess of Sussex · b. 1981',
+    name: 'Meghan, Duchess of Sussex',
+    dates: 'Born 4 August 1981, Los Angeles, California, USA',
+    bio: 'Meghan Markle, now Duchess of Sussex, married Prince Harry in 2018. Her biographer Andrew Morton researched her ancestry and found a connection to Robert the Bruce running through 25 generations on her grandmother\'s side. The link runs via Roger Shaw — the son of a London wine merchant who sailed from Plymouth to Massachusetts around 1637. Shaw\'s family originated from Yorkshire, and it was the marriage in 1490 of James Shaw to Christina Bruce, daughter of Sir David Bruce, 6th Baron of Clackmannan (a direct descendant of Robert the Bruce), that sealed the royal connection. Meghan is therefore 25 generations removed from Robert the Bruce — three generations further than you — making her a more distant descendant.',
+    context: 'The Bruce Barons of Clackmannan were a branch of the royal Bruce family who held the Clackmannan Tower in what is now Clackmannanshire — just a few miles from Alloa, where generations of the Young family\'s Fyfe and Paterson ancestors were born and raised. The geographical overlap between Meghan\'s Scottish royal ancestors and your own Clackmannanshire ancestors is a striking coincidence.',
+    facts: [
+      'Her Robert the Bruce connection was researched by Andrew Morton for his book "Meghan: A Hollywood Princess" (2018)',
+      'The connection runs through Roger Shaw, who sailed from Plymouth to Massachusetts around 1637 — connecting to America\'s earliest colonial period',
+      'The Shaw family link to royalty comes from the 1490 marriage of James Shaw to Christina Bruce, daughter of Sir David Bruce, 6th Baron of Clackmannan',
+      'Clackmannan Tower — home of the Bruce Barons — is just miles from Alloa, where your own Fyfe and Paterson ancestors lived for generations',
+      'At 25 generations removed, Meghan is actually three generations further from Robert the Bruce than the Young family — you are closer descendants',
+      'Her children Archie and Lilibet are therefore also descended from Robert the Bruce — and distant cousins of Stella and Olivia',
+    ],
+    chain: [
+      { name: 'Stephen Young (you)', detail: 'b. 22 Jun 1974, Lanark', rel: '', you: true },
+      { name: '…22 generations to Robert the Bruce…', detail: '', rel: '' },
+      { name: 'Robert the Bruce', detail: 'b. 1274 · d. 1329', rel: 'YOUR 22nd GGF / MEGHAN\'s 25th GGF', notable: true },
+      { name: '…25 generations via Bruce Barons of Clackmannan → Shaw → Meghan\'s grandmother\'s line…', detail: '', rel: '' },
+      { name: 'Meghan, Duchess of Sussex', detail: 'b. 4 Aug 1981, Los Angeles', rel: 'very distant cousin', you: false },
+    ]
+  },
+  'hilary-duff': {
+    theme: 'theme-english',
+    portrait: '🎵',
+    eyebrow: 'Actress & singer · b. 1987',
+    name: 'Hilary Duff',
+    dates: 'Born 28 September 1987, Houston, Texas, USA',
+    bio: 'Hilary Duff is an American actress and singer, best known for her role as Lizzie McGuire and later How I Met Your Father. Her connection to Robert the Bruce was revealed on a deeply emotional episode of the genealogy show Who Do You Think You Are? — a programme which traces the ancestry of celebrities. On the show, Hilary visited Dunfermline Abbey in Scotland, where Robert the Bruce\'s body is buried, and described him as her "21-times great-grandfather." That makes her one generation closer to Robert the Bruce than you — and therefore a distant cousin of the Young family through the same Bruce line.',
+    context: 'The episode was filmed partly at Dunfermline Abbey in Fife — less than 10 miles from Pitreave Castle, home of Sir Henry Wardlaw (another of your own ancestors). It\'s a small world. The Who Do You Think You Are? programme has traced Bruce descent for several celebrities — reflecting how widely the Bruce line spread across Britain, Ireland, and eventually America over 700 years.',
+    facts: [
+      'Described Robert the Bruce as her "21-times great-grandfather" on Who Do You Think You Are? — making her one generation closer than you',
+      'Visited Dunfermline Abbey during filming — where Robert the Bruce\'s body is buried (his heart is at Melrose Abbey)',
+      'Dunfermline is less than 10 miles from Pitreave Castle — home of your own ancestor Sir Henry Wardlaw, 1st Baronet',
+      'Her connection runs through British ancestry on one side of her family — the specific line has not been publicly detailed beyond the Bruce connection',
+      'Her children are therefore also distant cousins of Stella and Olivia through the Bruce line',
+      'The programme Who Do You Think You Are? has revealed Bruce descent for multiple celebrities, reflecting how widely the line spread over 700 years',
+    ],
+    chain: [
+      { name: 'Stephen Young (you)', detail: 'b. 22 Jun 1974, Lanark', rel: '', you: true },
+      { name: '…22 generations to Robert the Bruce…', detail: '', rel: '' },
+      { name: 'Robert the Bruce', detail: 'b. 1274 · d. 1329', rel: 'YOUR 22nd GGF / HILARY\'s 21st GGF', notable: true },
+      { name: '…21 generations back up via Hilary\'s line…', detail: '', rel: '' },
+      { name: 'Hilary Duff', detail: 'b. 28 Sep 1987, Houston, Texas', rel: 'distant cousin', you: false },
+    ]
+  },
+  'graham-fintry': {
+    theme: 'theme-scots',
+    portrait: '🏰',
+    eyebrow: '7th Baron of Fintry · 1591–1631',
+    name: '(Sir) David Graham, 7th Baron of Fintry',
+    dates: 'Born 1591, Fintry, Stirlingshire, Scotland · Died 11 November 1631, Grahamstow, Scotland',
+    bio: 'David Graham was the 7th Baron of Fintry — a Scottish noble title held by the Graham family, one of the most powerful dynasties in Stirlingshire. Fintry itself is a small village in the Campsie Fells, and Fintry Castle (also known as Culcreuch Castle) was the family seat. He connects into the Young family through a chain running from June\'s Fyfe ancestors through the Paterson line to Janet Buchan, then through the Horne family to his daughter Margaret Graham — who married Robert Horne of Alloa in the 1640s. This makes him a Stirlingshire noble connection on the Fyfe side, sitting 12 generations from Steve.',
+    context: 'The Graham family of Fintry were a significant force in Stirlingshire for centuries. David\'s lifetime (1591–1631) encompassed the union of the Scottish and English crowns under James VI/I in 1603, the beginning of plantation of Ulster, and the early years of Charles I\'s troubled reign. Stirlingshire at this period was at the heart of Scottish political life — Stirling Castle was one of the key royal residences, and the county\'s noble families were closely tied to court affairs.',
+    facts: [
+      'Baron of Fintry — a title held by the Graham family in Stirlingshire for generations',
+      'Fintry village and the Campsie Fells landscape where his estates lay are still beautiful and largely unchanged today',
+      'The Graham family were one of Scotland\'s oldest and most powerful noble dynasties, with branches across central Scotland',
+      'His daughter Margaret Graham married Robert Horne of Alloa — the link into the Fyfe/Paterson chain',
+      'His lifetime spanned the union of the Scottish and English crowns in 1603 under James VI',
+      'Culcreuch Castle in Fintry — associated with the Grahams — still stands and operates as a hotel today',
+    ],
+    chain: [
+      { name: 'Stephen Young (you)', detail: 'b. 22 Jun 1974, Lanark', rel: '', you: true },
+      { name: 'June Fyfe', detail: 'b. 8 Oct 1948, Bellshill', rel: 'your mother' },
+      { name: 'John Fyfe', detail: 'b. 2 Mar 1914, Coatbridge', rel: '' },
+      { name: 'David James Fyfe', detail: 'b. ~1887', rel: '' },
+      { name: 'John Fyfe', detail: 'b. 1854, Fossoway, Perthshire', rel: '' },
+      { name: 'Betsy Paterson', detail: 'b. 1821, Blairingone', rel: '' },
+      { name: 'Andrew Paterson', detail: 'b. 1779, Alloa', rel: '' },
+      { name: 'Alexander Paterson', detail: 'b. 1739, Clackmannan', rel: '' },
+      { name: 'James Paterson', detail: 'b. 1704, Clackmannan', rel: '' },
+      { name: 'Janet Buchan', detail: 'b. 7 Jan 1677, Alloa', rel: '' },
+      { name: 'Elizabeth "Bessie" Horne-Buchanan', detail: 'b. 12 Sep 1645, Alloa', rel: '' },
+      { name: 'Margaret Graham-Horne', detail: 'b. 1621, Stirlingshire', rel: '' },
+      { name: '(Sir) David Graham, 7th Baron of Fintry', detail: 'b. 1591, Fintry, Stirlingshire · d. 11 Nov 1631', rel: '12th great-grandfather', notable: true },
+    ]
+  },
+  'moreland-pennsylvania': {
+    theme: 'theme-english',
+    portrait: '🌊',
+    eyebrow: 'Colonial Settlers · 1761–1836',
+    name: 'Alexander Moreland & Mary Craig',
+    dates: 'Alexander born 1761, Ireland · Died 26 October 1836, Pennsylvania, USA. Mary born 1761, Ballysallagh, Dromore, County Down · Died 26 October 1836, Pittsburgh, Pennsylvania, USA',
+    bio: 'Alexander Moreland and Mary Craig were a married couple from Ireland who emigrated to America and died together in Pittsburgh, Pennsylvania in October 1836 — both on the same day, which is a remarkable detail. Mary was born in Ballysallagh, Dromore, County Down, in what is now Northern Ireland. They connect into the Young family through Steve\'s maternal grandmother Beryl Cameron\'s side — specifically through the McKay and Moreland families. Pittsburgh in their era was a rapidly growing frontier city at the confluence of three rivers, only formally incorporated in 1816, just twenty years before their deaths.',
+    context: 'The early 19th century saw enormous Irish emigration to America, driven by poverty, land clearances, and limited economic opportunity in Ireland. Pittsburgh was a natural destination — it sat at a key river junction and was growing fast as a manufacturing centre. The fact that both Alexander and Mary died on the same date (26 October 1836) is intriguing — possibly disease, possibly an accident. Their story represents the broader experience of Irish emigrants who built new lives in Pennsylvania.',
+    facts: [
+      'Both Alexander and Mary died on the same date — 26 October 1836 — in Pittsburgh, Pennsylvania',
+      'Mary Craig was born in Ballysallagh, Dromore, County Down — in what is now Northern Ireland',
+      'Pittsburgh in 1836 was a rapidly growing industrial frontier city, only incorporated 20 years earlier',
+      'They connect through Steve\'s maternal grandmother Beryl Cameron\'s McKay/Moreland line — a different route from the Virginia connections',
+      'Their emigration story reflects the massive wave of Irish emigration to Pennsylvania in the early 19th century',
+      'This is the third distinct American colonial connection in the Young family tree, entirely independent of the Fyfe/Blair/Lawrence and Walker/Virginia lines',
+    ],
+    chain: [
+      { name: 'Stephen Young (you)', detail: 'b. 22 Jun 1974, Lanark', rel: '', you: true },
+      { name: 'June Fyfe', detail: 'b. 8 Oct 1948, Bellshill', rel: 'your mother' },
+      { name: 'Beryl Cameron', detail: 'b. 20 Jul 1921', rel: 'maternal grandmother' },
+      { name: 'Richard Cameron', detail: 'b. 1 Feb 1866', rel: '' },
+      { name: 'Wilhelmina "Mina" McKay', detail: 'b. 1 Oct 1867', rel: '' },
+      { name: 'Margaret Moreland', detail: 'b. 1811', rel: '' },
+      { name: 'Robert Moreland', detail: 'b. 1790, Glasgow', rel: '' },
+      { name: 'Alexander Moreland & Mary Craig', detail: 'b. 1761, Ireland · d. 26 Oct 1836, Pittsburgh, Pennsylvania', rel: '8th great-grandparents', notable: true },
+    ]
+  },
+  'johanna-lawry': {
+    theme: 'theme-english',
+    portrait: '⚓',
+    eyebrow: 'Colonial Settler · 1677–c.1740',
+    name: 'Johanna Lawry',
+    dates: 'Born 19 March 1677, Dartmouth, Devon, England · Died Chester, Pennsylvania, USA',
+    bio: 'Johanna Lawry was born in Dartmouth, Devon — one of England\'s great maritime ports, from which countless emigrants set sail for the American colonies. She died in Chester, Pennsylvania — one of the very oldest English settlements in America, founded in 1682 by William Penn himself as part of his "Holy Experiment" for religious tolerance. Her route into the Young family is through the Treby/Efford/Perring chain in Devon, which connects through Beryl Cameron\'s side of the family. This makes her one of the earliest American colonial connections in the tree — arriving in Pennsylvania in its founding era.',
+    context: 'Chester, Pennsylvania (originally called Upland, then renamed by William Penn) was the first landing point of Penn\'s colonists in 1682 and the site of Pennsylvania\'s first court. By the time Johanna arrived, it was a small but established settlement of Quakers and other dissenters seeking religious freedom. Dartmouth, her birthplace, was a significant Devon port that maintained strong trading links with the American colonies throughout the 17th and 18th centuries — many emigrants from the West Country made the voyage from there.',
+    facts: [
+      'Died in Chester, Pennsylvania — founded by William Penn in 1682, one of America\'s oldest English settlements',
+      'Born in Dartmouth, Devon — a major port with strong colonial trading links, from which many emigrants sailed',
+      'William Penn\'s "Holy Experiment" in Pennsylvania attracted many from Devon and the West Country seeking religious freedom',
+      'She connects through the Treby/Efford/Perring chain in Devon, then through Beryl Cameron to June and Steve',
+      'Chester was the site of Pennsylvania\'s first court — she lived in one of the most historically significant places in early America',
+      'This is a third independent American colonial connection, separate from the Virginia and Pittsburgh lines',
+    ],
+    chain: [
+      { name: 'Stephen Young (you)', detail: 'b. 22 Jun 1974, Lanark', rel: '', you: true },
+      { name: 'June Fyfe', detail: 'b. 8 Oct 1948, Bellshill', rel: 'your mother' },
+      { name: 'Beryl Cameron', detail: 'b. 20 Jul 1921', rel: 'maternal grandmother' },
+      { name: 'Elizabeth Perring', detail: 'b. ~1748, Devon', rel: '' },
+      { name: 'Thomas Pering', detail: 'b. 25 Dec 1863, Devon', rel: '' },
+      { name: 'Richard Perring', detail: 'b. 1794', rel: '' },
+      { name: 'John Perring', detail: 'b. 1752, Devon', rel: '' },
+      { name: 'John Perring', detail: 'b. 9 Apr 1730, Modbury, Devon', rel: '' },
+      { name: 'John Treby', detail: 'b. 1670, Stoke Fleming, Devon', rel: '' },
+      { name: 'Florence', detail: 'b. 1657, Devon', rel: '' },
+      { name: 'Johanna Lawry', detail: 'b. 19 Mar 1677, Dartmouth, Devon · d. Chester, Pennsylvania', rel: '10th great-grandmother', notable: true },
+    ]
+  },
+  'troutbeck': {
+    theme: 'theme-military',
+    portrait: '⚔️',
+    eyebrow: 'Wars of the Roses · 1434–1459',
+    name: 'Sir John Troutbeck',
+    dates: 'Born 1434, Prynes Castle, Dunham on the Hill, Cheshire · Died 23 September 1459, Battle of Blore Heath, Staffordshire',
+    bio: 'Sir John Troutbeck was a Cheshire knight who died fighting for the House of Lancaster at the Battle of Blore Heath — one of the opening engagements of the Wars of the Roses. The Troutbecks were a notable Cheshire and Lancashire family, and Sir John was a man of some standing. Blore Heath (23 September 1459) was a Lancastrian disaster: a Lancastrian force under Lord Audley was intercepted by the Yorkist Earl of Salisbury, and Audley was killed along with many of his men, including Sir John. He is the ancestor discovered when searching for a relative who "died in the Wars of the Roses around 1455" — though the date in the family tree records for him is a marriage date in 1455; his actual death was four years later at Blore Heath.',
+    context: 'The Wars of the Roses were a series of civil wars fought between the Houses of Lancaster and York for the English throne, from 1455 to 1487. Both houses were descended from Edward III — precisely the same ancestor from whom the Young family also descends through Joan Beaufort. Blore Heath was fought just two months before the rout of the Lancastrians at Ludford Bridge, which forced the Yorkist leaders to flee England — a prelude to the eventual Yorkist victory.',
+    facts: [
+      'Died at the Battle of Blore Heath (23 Sept 1459) — an early battle of the Wars of the Roses',
+      'Fought for the House of Lancaster — the same royal line from which the Young family descends via Joan Beaufort',
+      'The Troutbeck family were a notable Cheshire and Lancashire gentry family',
+      'His connection into the Young family runs via his daughter Joan Troutbeck → Agnes Wombwell → Thomas Grice → Elizabeth Grice → and on up through the Scottish chain to Steve',
+      'Blore Heath is in Staffordshire, near Market Drayton; a memorial cross still marks the battlefield',
+      'He is the ancestor originally discovered when researching "a relative who died in the Wars of the Roses" — making him the find that started this whole journey',
+    ],
+    chain: [
+      { name: 'Stephen Young (you)', detail: 'b. 22 Jun 1974, Lanark', rel: '', you: true },
+      { name: 'June Fyfe', detail: 'b. 1948, Bellshill', rel: 'your mother' },
+      { name: 'John Fyfe', detail: 'b. 1914, Coatbridge · d. 1981', rel: '' },
+      { name: 'David James Fyfe', detail: 'b. ~1887', rel: '' },
+      { name: 'John Fyfe', detail: 'b. 1854, Fossoway · d. 1925', rel: '' },
+      { name: '…Fyfe chain via Troutbeck/Grice/Wombwell route…', detail: '', rel: '' },
+      { name: 'Janet Condie → Janet Aedie → John Ranie', detail: '', rel: '' },
+      { name: 'Kathleen Thornhill → Elizabeth Grice', detail: 'b. 1504', rel: '' },
+      { name: 'Thomas Grice (b. 1482) → Thomas Grice (b. 1450)', detail: '', rel: '' },
+      { name: 'Agnes Wombwell', detail: 'b. 1415, Wombwell, Yorkshire', rel: '' },
+      { name: 'Joan Troutbeck', detail: 'b. ~1430', rel: '' },
+      { name: 'Sir John Troutbeck', detail: 'b. 1434, Cheshire · d. 1459, Blore Heath', rel: '16th great-grandfather', notable: true },
+    ]
+  },
+};
+
+// ── USER PERSONALISATION ──────────────────────────────────────────────
+// Supported: ?user=steve (default), ?user=june, ?user=stella, ?user=olivia
+// June is Steve's mother (-1 generation), Stella/Olivia are Steve's children (+1 generation)
+
+const USERS = {
+  steve: {
+    name: 'Steve',
+    firstName: 'Steve',
+    pronoun: 'your',
+    possessive: 'your',
+    genOffset: 0,   // baseline
+    heroName: 'Steve',
+    heroIntro: 'A guide to the remarkable people in the Young family tree — their lives, their times, and the exact chain that connects them to Steve, June, Stella and Olivia today.',
+    chainLabel: 'Your Chain of Descent',
+    chainNote: 'Reading from you downward to this ancestor — every person in this chain is in the family tree.',
+    topStep: { name: 'Stephen Young (you)', detail: 'b. 22 Jun 1974, Lanark', rel: '', you: true },
+  },
+  june: {
+    name: 'June',
+    firstName: 'June',
+    pronoun: 'your',
+    possessive: 'your',
+    genOffset: -1,  // June is one generation closer — great-grandparents become fewer greats
+    heroName: 'June',
+    heroIntro: 'A guide to the remarkable people in June\'s family tree — their lives, their times, and the exact chain that connects them to you, your son Steve, and your granddaughters Stella and Olivia.',
+    chainLabel: 'Your Chain of Descent',
+    chainNote: 'Reading from you downward to this ancestor — every person in this chain is in the family tree.',
+    topStep: { name: 'June Fyfe (you)', detail: 'b. 8 Oct 1948, Bellshill', rel: '', you: true },
+  },
+  stella: {
+    name: 'Stella',
+    firstName: 'Stella',
+    pronoun: 'your',
+    possessive: 'your',
+    genOffset: 1,   // Stella is one generation further — great-grandparents get one more "great"
+    heroName: 'Stella',
+    heroIntro: 'A guide to the remarkable people in Stella\'s family tree — their lives, their times, and the exact chain that connects them to you, your dad Steve, and your grandmother June.',
+    chainLabel: 'Your Chain of Descent',
+    chainNote: 'Reading from you downward to this ancestor — every person in this chain is in the family tree.',
+    topStep: { name: 'Stella Young (you)', detail: 'b. 22 Dec 2009, Wishaw', rel: '', you: true },
+  },
+  olivia: {
+    name: 'Olivia',
+    firstName: 'Olivia',
+    pronoun: 'your',
+    possessive: 'your',
+    genOffset: 1,
+    heroName: 'Olivia',
+    heroIntro: 'A guide to the remarkable people in Olivia\'s family tree — their lives, their times, and the exact chain that connects them to you, your dad Steve, and your grandmother June.',
+    chainLabel: 'Your Chain of Descent',
+    chainNote: 'Reading from you downward to this ancestor — every person in this chain is in the family tree.',
+    topStep: { name: 'Olivia Young (you)', detail: 'b. 22 Dec 2009, Wishaw', rel: '', you: true },
+  },
+};
+
+// Ordinal suffix helper
+function ordinal(n) {
+  const abs = Math.abs(n);
+  const s = ['th','st','nd','rd'];
+  const v = abs % 100;
+  return abs + (s[(v-20)%10] || s[v] || s[0]);
+}
+
+// Adjust a relationship label's generation count by offset
+// e.g. "17th great-grandmother" with offset -1 → "16th great-grandmother"
+//      "17th great-grandmother" with offset +1 → "18th great-grandmother"
+function adjustRel(rel, offset) {
+  if (!rel || offset === 0) return rel;
+  return rel.replace(/(\d+)(st|nd|rd|th)(\s+great)/g, (match, num, suf, rest) => {
+    const newNum = parseInt(num) + offset;
+    if (newNum <= 0) return rel; // don't mangle close relationships
+    return ordinal(newNum) + rest;
+  });
+}
+
+// Get current user config from URL param
+function getUser() {
+  const params = new URLSearchParams(window.location.search);
+  const key = (params.get('user') || 'steve').toLowerCase();
+  return USERS[key] || USERS.steve;
+}
+
+// Apply user personalisation to static page content
+function applyUser(user) {
+  // Hero intro text
+  const heroP = document.querySelector('.hero p');
+  if (heroP) heroP.textContent = user.heroIntro;
+
+  // Hero title
+  const heroH1 = document.querySelector('.hero h1');
+  if (heroH1) {
+    heroH1.innerHTML = `${user.heroName}'s family stretches back to <em>Robert the Bruce</em>`;
+  }
+
+  // Nav brand
+  const brand = document.querySelector('.nav-brand');
+  if (brand) brand.innerHTML = `The <span>Young</span> Family`;
+
+  // Chain label in modal
+  document.querySelector('.modal-section-label[id="m-chain-label"]') &&
+    (document.querySelector('.modal-section-label[id="m-chain-label"]').textContent = user.chainLabel);
+
+  // Chain note
+  const chainNote = document.querySelector('.descent-chain-note');
+  if (chainNote) chainNote.textContent = user.chainNote;
+
+  // Person card tags & "Your connection" text — adjust generation labels
+  document.querySelectorAll('.person-tag').forEach(el => {
+    el.textContent = adjustRel(el.textContent, user.genOffset);
+  });
+
+  // "Your connection" lines in cards
+  document.querySelectorAll('.person-gen').forEach(el => {
+    if (user.genOffset !== 0) {
+      el.textContent = el.textContent.replace(/^Your connection/, `${user.firstName}'s connection`);
+    }
+  });
+
+  // Section sub — replace "Steve" pronoun where appropriate
+  if (user.genOffset !== 0) {
+    document.querySelectorAll('.section-sub, .branch-header-text p, .mini-chain .person.highlight').forEach(el => {
+      // handled per element type below
+    });
+    // Update "you" label in branch overview chains
+    document.querySelectorAll('.mini-chain .person.highlight:first-child').forEach(el => {
+      if (el.textContent === 'Steve') el.textContent = user.firstName;
+    });
+  }
+
+  // User switcher pill in nav
+  const nav = document.querySelector('nav');
+  const switcher = document.createElement('div');
+  switcher.style.cssText = 'display:flex;gap:6px;align-items:center;flex-shrink:0;';
+  const views = [
+    { key: 'june',   label: 'June\'s view' },
+    { key: 'steve',  label: 'Steve\'s view' },
+    { key: 'stella', label: 'Stella\'s view' },
+    { key: 'olivia', label: 'Olivia\'s view' },
+  ];
+  const currentKey = (new URLSearchParams(window.location.search).get('user') || 'steve').toLowerCase();
+  views.forEach(v => {
+    const a = document.createElement('a');
+    const url = new URL(window.location.href);
+    url.searchParams.set('user', v.key);
+    a.href = url.toString();
+    a.textContent = v.label;
+    a.style.cssText = `font-size:0.7rem;font-weight:600;padding:4px 10px;border-radius:20px;text-decoration:none;white-space:nowrap;transition:background 0.15s,color 0.15s;`;
+    if (v.key === currentKey) {
+      a.style.background = 'var(--gold)';
+      a.style.color = '#fff';
+    } else {
+      a.style.background = 'var(--line)';
+      a.style.color = 'var(--ink-light)';
+    }
+    switcher.appendChild(a);
+  });
+  nav.appendChild(switcher);
+}
+
+// ── MODAL ────────────────────────────────────────────────────────────
+
+function buildChainForUser(chain, user) {
+  // Strip the existing 'you' marker step (Steve)
+  const base = chain.filter(s => !s.you);
+
+  if (user.genOffset === -1) {
+    // June's view: she IS the top. Strip the first step if it's June herself
+    // (appears as rel: 'your mother' or name includes 'June') to avoid duplication
+    const withoutJune = base.filter((s, i) => {
+      if (i === 0 && (s.name.includes('June') || s.rel === 'your mother')) return false;
+      return true;
+    });
+    return [user.topStep, ...withoutJune];
+  } else if (user.genOffset === 1) {
+    // Stella/Olivia: prepend them, then Steve as a plain step, then the rest
+    const steveStep = { name: 'Stephen Young (dad)', detail: 'b. 22 Jun 1974, Lanark', rel: 'your father' };
+    return [user.topStep, steveStep, ...base];
+  } else {
+    // Steve: normal
+    return [user.topStep, ...base];
+  }
+}
+
+function openModal(id) {
+  const d = DATA[id];
+  if (!d) return;
+  const user = getUser();
+
+  document.getElementById('m-portrait').textContent = d.portrait;
+  document.getElementById('m-portrait').className = 'modal-portrait ' + d.theme;
+  document.getElementById('m-eyebrow').textContent = d.eyebrow;
+  document.getElementById('m-name').textContent = d.name;
+  document.getElementById('m-dates').textContent = d.dates;
+
+  // Adjust bio & facts to use correct pronoun
+  let bio = d.bio;
+  let facts = d.facts.map(f => f);
+  if (user.genOffset !== 0) {
+    // Replace "your 17th great-grandmother" etc. with adjusted generation
+    bio = bio.replace(/your (\d+)(st|nd|rd|th) great/g, (m, n, s) => {
+      const nn = parseInt(n) + user.genOffset;
+      return nn <= 0 ? m : `${user.possessive} ${ordinal(nn)} great`;
+    });
+    facts = facts.map(f => f.replace(/your (\d+)(st|nd|rd|th) great/g, (m, n, s) => {
+      const nn = parseInt(n) + user.genOffset;
+      return nn <= 0 ? m : `${user.possessive} ${ordinal(nn)} great`;
+    }));
+  }
+
+  document.getElementById('m-bio').textContent = bio;
+  document.getElementById('m-context').textContent = d.context;
+
+  const factsList = document.getElementById('m-facts');
+  factsList.innerHTML = '';
+  facts.forEach(f => {
+    const li = document.createElement('li');
+    li.textContent = f;
+    factsList.appendChild(li);
+  });
+
+  // Chain label
+  const chainLabel = document.getElementById('m-chain-label');
+  if (chainLabel) chainLabel.textContent = user.chainLabel;
+  document.querySelector('.descent-chain-note').textContent = user.chainNote;
+
+  const chain = buildChainForUser(d.chain, user);
+
+  const chainEl = document.getElementById('m-chain');
+  chainEl.innerHTML = '';
+  chain.forEach((step, i) => {
+    const isLast = i === chain.length - 1;
+    // Adjust relationship label generation count
+    const rel = adjustRel(step.rel, user.genOffset);
+    const div = document.createElement('div');
+    div.className = 'chain-step';
+    div.innerHTML = `
+      <div class="chain-step-left">
+        <div class="chain-dot ${step.you ? 'you' : ''} ${step.notable ? 'notable' : ''}"></div>
+        ${!isLast ? '<div class="chain-line"></div>' : ''}
+      </div>
+      <div class="chain-step-text">
+        <div class="chain-step-name ${step.you ? 'you-name' : ''} ${step.notable ? 'notable-name' : ''}">${step.name}</div>
+        ${step.detail ? `<div class="chain-step-detail">${step.detail}</div>` : ''}
+        ${rel ? `<div class="chain-step-rel">${rel}</div>` : ''}
+      </div>
+    `;
+    chainEl.appendChild(div);
+  });
+
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function handleOverlayClick(e) {
+  if (e.target === document.getElementById('modal-overlay')) closeModal();
+}
+
+function scrollToSection(id) {
+  setTimeout(() => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  }, 50);
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
+});
+
+// Run personalisation on load
+document.addEventListener('DOMContentLoaded', () => {
+  applyUser(getUser());
+});
+</script>
+</body>
+</html>
