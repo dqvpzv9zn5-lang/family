@@ -52,7 +52,18 @@ header{display:flex;align-items:center;gap:16px;padding:0 18px;height:50px;flex-
 .leaflet-popup-content{margin:10px 14px;font-size:0.78rem;line-height:1.55;}
 .leaflet-popup-tip{background:rgba(250,250,248,0.97);}
 .leaflet-popup-close-button{color:rgba(0,0,0,0.3) !important;}
-@media(max-width:600px){.spd,.back,#leg,#stats{display:none;} #yr{font-size:1.5rem;}}
+@media(max-width:600px){
+  .spd{display:none;}
+  #leg{display:none;}
+  #stats{top:auto;bottom:110px;right:8px;flex-direction:column;align-items:flex-end;}
+  .pill{font-size:0.65rem;padding:4px 10px;}
+  .pill .n{font-size:0.85rem;}
+  #hov{max-width:calc(100vw - 24px);font-size:0.72rem;}
+  #yr{font-size:1.5rem;}
+  header{padding:0 12px;}
+  #tl{padding:10px 12px 10px;}
+  .tl-row{gap:10px;}
+}
 </style>
 </head>
 <body>
@@ -81,7 +92,7 @@ header{display:flex;align-items:center;gap:16px;padding:0 18px;height:50px;flex-
   </div>
   <div id="tl">
     <div class="tl-row">
-      <button id="pbtn">&#9654;</button>
+      <button id="pbtn" style="touch-action:manipulation;">&#9654;</button>
       <div id="yr">1274</div>
       <div id="inf"><strong id="cvis">0</strong> ancestors born by this year<br><span id="cloc"></span></div>
       <div class="spd">
@@ -91,7 +102,7 @@ header{display:flex;align-items:center;gap:16px;padding:0 18px;height:50px;flex-
     </div>
     <div class="sl-row">
       <span class="sll">1274</span>
-      <input type="range" id="sl" min="1274" max="2009" value="1274" step="1">
+      <input type="range" id="sl" min="1274" max="2009" value="1274" step="1" style="touch-action:none;">
       <span class="sll">2009</span>
     </div>
   </div>

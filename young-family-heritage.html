@@ -2167,11 +2167,26 @@ function buildChainForUser(chain, user) {
       if (i === 0 && (s.name.includes('June') || s.rel === 'your mother')) return false;
       return true;
     });
-    return [user.topStep, ...withoutJune];
+    // Fix relationship labels for June's perspective:
+    // Gordon Young is June's husband, not her father
+    const relabelled = withoutJune.map(s => {
+      if (s.name.includes('Gordon Young') && s.rel === 'your father') {
+        return { ...s, rel: 'your husband' };
+      }
+      return s;
+    });
+    return [user.topStep, ...relabelled];
   } else if (user.genOffset === 1) {
     // Stella/Olivia: prepend them, then Steve as a plain step, then the rest
+    // Gordon Young becomes their grandfather, not their father
     const steveStep = { name: 'Stephen Young (dad)', detail: 'b. 22 Jun 1974, Lanark', rel: 'your father' };
-    return [user.topStep, steveStep, ...base];
+    const relabelled = base.map(s => {
+      if (s.name.includes('Gordon Young') && s.rel === 'your father') {
+        return { ...s, rel: 'your grandfather' };
+      }
+      return s;
+    });
+    return [user.topStep, steveStep, ...relabelled];
   } else {
     // Steve: normal
     return [user.topStep, ...base];
