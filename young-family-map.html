@@ -10,10 +10,10 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--ink:#1a1a2e;--gold:#c8973a;--line:rgba(0,0,0,0.10);}
+:root{--ink:#1a1a2e;--gold:#c8973a;--line:rgba(0,0,0,0.10);--tl-h:90px;}
 html,body{height:100%;overflow:hidden;font-family:"Inter",sans-serif;background:#f0ede8;}
-#app{display:flex;flex-direction:column;height:100vh;}
-#map{flex:1;position:relative;}
+#app{display:flex;flex-direction:column;height:100vh;height:100dvh;}
+#map{flex:1;min-height:0;position:relative;}
 header{display:flex;align-items:center;gap:16px;padding:0 18px;height:50px;flex-shrink:0;background:rgba(250,250,248,0.98);border-bottom:1px solid var(--line);z-index:200;position:relative;}
 .brand{font-family:"Playfair Display",serif;font-size:0.95rem;color:var(--ink);}
 .brand em{color:var(--gold);font-style:normal;}
@@ -21,7 +21,7 @@ header{display:flex;align-items:center;gap:16px;padding:0 18px;height:50px;flex-
 .back:hover{color:var(--gold);}
 #tl{flex-shrink:0;background:rgba(250,250,248,0.98);border-top:1px solid var(--line);padding:12px 18px 10px;z-index:200;position:relative;}
 .tl-row{display:flex;align-items:center;gap:14px;margin-bottom:9px;}
-#pbtn{width:36px;height:36px;border-radius:50%;background:var(--gold);border:none;cursor:pointer;color:#fff;font-size:1rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+#pbtn{width:36px;height:36px;border-radius:50%;background:var(--gold);border:none;cursor:pointer;color:#fff;font-size:1rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;touch-action:manipulation;}
 #pbtn:hover{background:#b5852e;}
 #yr{font-family:"Playfair Display",serif;font-size:2rem;font-weight:600;color:var(--gold);min-width:76px;line-height:1;}
 #inf{font-size:0.75rem;color:rgba(0,0,0,0.45);line-height:1.5;}
@@ -31,9 +31,9 @@ header{display:flex;align-items:center;gap:16px;padding:0 18px;height:50px;flex-
 .sb.on,.sb:hover{background:var(--gold);color:#fff;border-color:var(--gold);}
 .sl-row{display:flex;align-items:center;gap:10px;}
 .sll{font-size:0.68rem;color:rgba(0,0,0,0.3);white-space:nowrap;}
-#sl{flex:1;-webkit-appearance:none;appearance:none;height:4px;background:rgba(0,0,0,0.12);border-radius:2px;outline:none;cursor:pointer;}
-#sl::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--gold);cursor:pointer;border:2px solid #fff;}
-#sl::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--gold);cursor:pointer;border:2px solid #fff;}
+#sl{flex:1;-webkit-appearance:none;appearance:none;height:4px;background:rgba(0,0,0,0.12);border-radius:2px;outline:none;cursor:pointer;touch-action:none;}
+#sl::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--gold);cursor:pointer;border:2px solid #fff;}
+#sl::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--gold);cursor:pointer;border:2px solid #fff;}
 #leg{position:fixed;bottom:100px;right:12px;z-index:9999;background:rgba(250,250,248,0.96);border:1px solid rgba(0,0,0,0.12);border-radius:10px;padding:12px 15px;min-width:150px;pointer-events:none;box-shadow:0 2px 12px rgba(0,0,0,0.08);}
 .lt{font-size:0.67rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
 .li{display:flex;align-items:center;gap:8px;font-size:0.73rem;color:rgba(0,0,0,0.5);margin-bottom:4px;}
@@ -55,14 +55,16 @@ header{display:flex;align-items:center;gap:16px;padding:0 18px;height:50px;flex-
 @media(max-width:600px){
   .spd{display:none;}
   #leg{display:none;}
-  #stats{top:auto;bottom:110px;right:8px;flex-direction:column;align-items:flex-end;}
-  .pill{font-size:0.65rem;padding:4px 10px;}
-  .pill .n{font-size:0.85rem;}
-  #hov{max-width:calc(100vw - 24px);font-size:0.72rem;}
-  #yr{font-size:1.5rem;}
-  header{padding:0 12px;}
-  #tl{padding:10px 12px 10px;}
-  .tl-row{gap:10px;}
+  #stats{display:none;}
+  #hov{max-width:calc(100vw - 24px);font-size:0.72rem;top:60px;}
+  #yr{font-size:1.6rem;min-width:60px;}
+  #inf{font-size:0.7rem;}
+  header{padding:0 12px;height:46px;}
+  #tl{padding:10px 14px 12px;}
+  .tl-row{gap:10px;margin-bottom:8px;}
+  .sl-row{gap:8px;}
+  .sll{font-size:0.65rem;}
+  #pbtn{width:40px;height:40px;font-size:1.1rem;}
 }
 </style>
 </head>
@@ -92,7 +94,7 @@ header{display:flex;align-items:center;gap:16px;padding:0 18px;height:50px;flex-
   </div>
   <div id="tl">
     <div class="tl-row">
-      <button id="pbtn" style="touch-action:manipulation;">&#9654;</button>
+      <button id="pbtn">&#9654;</button>
       <div id="yr">1274</div>
       <div id="inf"><strong id="cvis">0</strong> ancestors born by this year<br><span id="cloc"></span></div>
       <div class="spd">
@@ -102,7 +104,7 @@ header{display:flex;align-items:center;gap:16px;padding:0 18px;height:50px;flex-
     </div>
     <div class="sl-row">
       <span class="sll">1274</span>
-      <input type="range" id="sl" min="1274" max="2009" value="1274" step="1" style="touch-action:none;">
+      <input type="range" id="sl" min="1274" max="2009" value="1274" step="1">
       <span class="sll">2009</span>
     </div>
   </div>
